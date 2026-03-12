@@ -50,7 +50,7 @@ Children of a group appear with incremental delay, creating a cascade effect.
 
 **CSS:**
 
-- `.stagger > *` — `opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease, transition-delay calc(var(--i, 0) * 80ms);`
+- `.stagger > *` — `opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; transition-delay: calc(var(--i, 0) * 80ms);`
 - `.stagger.revealed > *` — `opacity: 1; transform: translateY(0);`
 
 **Mechanism:** The `.stagger` container gets the `.reveal` class in HTML. The IntersectionObserver observes the container and adds `.revealed` to it on intersection. This cascades to children via the `.stagger.revealed > *` rule. Individual children are NOT observed — only the parent container.
@@ -94,6 +94,7 @@ Children of a group appear with incremental delay, creating a cascade effect.
 - Two separate properties: `width: var(--tab-width); transform: translateX(var(--tab-left));`
 - Add `transition: transform 0.3s ease, width 0.3s ease;` so the indicator slides rather than jumping
 - JS updates `--tab-left` and `--tab-width` on tab switch using `tab.offsetLeft` and `tab.offsetWidth`
+- JS also sets initial `--tab-left` and `--tab-width` on `DOMContentLoaded` for the initially active tab
 - Set `border-bottom-color: transparent` on `.tab-btn[aria-selected="true"]` (preserves border for layout, hides it visually)
 
 **Panel transition:**
