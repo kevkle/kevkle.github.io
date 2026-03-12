@@ -120,6 +120,14 @@ header {
   flex-shrink: 0;
 }
 
+.header-availability {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  margin-top: 12px;
+}
+
 .header-contact {
   margin-top: 28px;
   font-family: 'DM Mono', monospace;
@@ -159,6 +167,16 @@ header {
   scrollbar-width: none;
 }
 .tabs-wrap::-webkit-scrollbar { display: none; }
+.tabs-wrap::after {
+  content: '';
+  position: sticky;
+  right: 0;
+  flex-shrink: 0;
+  width: 48px;
+  background: linear-gradient(90deg, transparent, rgba(10,10,15,0.95));
+  pointer-events: none;
+  margin-left: -48px;
+}
 
 .tab-btn {
   padding: 18px 28px;
@@ -178,6 +196,21 @@ header {
 .tab-btn:hover { color: var(--text); }
 .tab-btn[aria-selected="true"] { color: var(--accent); border-bottom-color: var(--accent); }
 .tab-num { font-size: 0.6rem; opacity: 0.4; margin-right: 6px; }
+
+.tab-cta {
+  margin-left: auto;
+  padding: 18px 28px;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  text-decoration: none;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  transition: opacity 0.25s;
+}
+.tab-cta:hover { opacity: 0.7; text-decoration: none; }
 
 /* PANELS */
 .panel { display: none; padding: 60px 0; animation: fadeUp 0.4s ease; }
@@ -206,7 +239,7 @@ header {
   gap: 60px;
   align-items: start;
 }
-.about-body { font-size: 0.92rem; color: var(--muted); line-height: 1.85; }
+.about-body { font-size: 0.92rem; color: var(--text); line-height: 1.85; }
 .pill-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 32px; }
 .pill {
   padding: 5px 14px;
@@ -220,6 +253,37 @@ header {
   transition: all 0.2s;
 }
 .pill:hover { border-color: var(--accent); color: var(--accent); }
+
+.currently-building {
+  margin-top: 32px;
+  padding: 16px 20px;
+  border-left: 2px solid var(--accent);
+  background: var(--card);
+  font-size: 0.85rem;
+  color: var(--text);
+  line-height: 1.7;
+}
+.currently-label {
+  display: block;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+
+.panel-nav-link {
+  display: inline-block;
+  margin-top: 24px;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.panel-nav-link:hover { color: var(--accent); text-decoration: none; }
 
 /* Impact strip */
 .impact-label {
@@ -278,6 +342,17 @@ header {
 .exp-bullets { list-style: none; }
 .exp-bullets li { font-size: 0.88rem; color: #9090a8; line-height: 1.7; padding: 5px 0 5px 18px; position: relative; }
 .exp-bullets li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-size: 0.75rem; top: 6px; }
+.exp-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
+.exp-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  padding: 3px 8px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--muted);
+  border-radius: 2px;
+  letter-spacing: 0.04em;
+}
 
 /* SKILLS */
 .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
@@ -344,6 +419,7 @@ header {
   .skills-grid { grid-template-columns: 1fr; }
   .exp-item, .edu-item { grid-template-columns: 1fr; gap: 10px; }
   .tab-btn { padding: 14px 16px; font-size: 0.65rem; }
+  .tab-cta { display: none; }
   .shell { padding: 0 20px 60px; }
 }
 

@@ -140,6 +140,20 @@
       syncHash(initial);
     }
 
+    // In-panel navigation links (e.g. "Full work history in Experience →")
+    var navLinks = Array.prototype.slice.call(document.querySelectorAll('.panel-nav-link[data-tab]'));
+    navLinks.forEach(function (link) {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        var targetTab = document.getElementById(link.getAttribute('data-tab'));
+        if (targetTab) {
+          setActive(targetTab, tabEls, panelEls);
+          syncHash(targetTab);
+          targetTab.focus();
+        }
+      });
+    });
+
     setFooterYear();
   });
 }());

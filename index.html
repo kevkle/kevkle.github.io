@@ -55,8 +55,8 @@
     <div class="header-info">
       <h1>Kevin Klein</h1>
       <div class="role">Senior AI Engineer</div>
+      <div class="header-availability">Open to senior AI roles · Remote / Hybrid · Tel Aviv</div>
       <div class="header-contact">
-        <div>Tel Aviv, Israel</div>
         <a href="mailto:kevinklein.dev@proton.me">kevinklein.dev@proton.me</a><br>
         <a href="https://www.linkedin.com/in/kevinklein93" target="_blank" rel="noopener noreferrer">linkedin.com/in/kevinklein93</a>
       </div>
@@ -72,6 +72,7 @@
     <button role="tab" id="tab-skills" aria-controls="panel-skills" aria-selected="false" class="tab-btn" tabindex="-1"><span class="tab-num">03</span>Skills</button>
     <button role="tab" id="tab-education" aria-controls="panel-education" aria-selected="false" class="tab-btn" tabindex="-1"><span class="tab-num">04</span>Education</button>
     <button role="tab" id="tab-contact" aria-controls="panel-contact" aria-selected="false" class="tab-btn" tabindex="-1"><span class="tab-num">05</span>Contact</button>
+    <a href="mailto:kevinklein.dev@proton.me" class="tab-cta">Get in touch &rarr;</a>
   </nav>
 
   <!-- ABOUT -->
@@ -120,6 +121,10 @@
         <p class="about-body">
           Senior AI Engineer with 8+ years building production AI systems in high-stakes environments where correctness and reliability are non-negotiable. Specialised in end-to-end agentic architecture &mdash; from MCP server design and RAG pipeline engineering to GPU-optimised LLM inference and Kubernetes-scale deployment. Proven track record of delivering measurable outcomes: 6 hours earlier cardiac complication detection, 40% operational workload reduction, and production agentic systems trusted in regulated clinical environments. Strong mathematical foundation from ETH Z&uuml;rich underpins a first-principles approach to system design that distinguishes rigorous engineering from engineering that merely works.
         </p>
+        <div class="currently-building">
+          <span class="currently-label">Currently building</span>
+          Production agentic AI for clinical decision support &mdash; conversational systems that give doctors real-time, auditable access to patient data.
+        </div>
         <div class="pill-row">
           <span class="pill">LLM Systems</span>
           <span class="pill">Agentic AI / MCP</span>
@@ -132,6 +137,7 @@
           <span class="pill">Kubernetes</span>
           <span class="pill">MLflow / DVC</span>
         </div>
+        <a href="#experience" class="panel-nav-link" data-tab="tab-experience">Full work history in Experience &rarr;</a>
       </div>
     </div>
   </section>
@@ -149,14 +155,15 @@
         <div>
           <div class="exp-title">Senior AI Engineer</div>
           <ul class="exp-bullets">
-            <li>Architected a production agentic AI system giving clinicians conversational access to structured and unstructured patient records &mdash; eliminating the need to manually query across disparate healthcare data sources and reducing clinical investigation time in a regulated, high-stakes environment.</li>
-            <li>Designed and deployed an MCP server-powered tool-capable agent integrating heterogeneous healthcare data sources &mdash; enabling the AI system to autonomously retrieve, validate, and process patient data with full auditability required for clinical compliance.</li>
-            <li>Built a custom RAG pipeline with context prioritisation that grounded agent responses in verified clinical knowledge &mdash; measurably reducing hallucination risk in a domain where incorrect outputs have direct patient safety implications.</li>
-            <li>Deployed a vLLM inference engine on Kubernetes with GPU load balancing and auto-scaling &mdash; achieving production-grade low-latency serving for real-time clinical queries while optimising infrastructure cost in a regulated cloud environment.</li>
-            <li>Delivered up to 6 hours earlier detection of postoperative cardiac complications by architecting deep learning forecasting models on severely imbalanced clinical time-series data &mdash; directly enabling earlier clinical intervention and improving patient outcomes in a high-stakes surgical environment.</li>
-            <li>Established end-to-end ML experiment tracking and dataset versioning with MLflow and DVC &mdash; cutting model iteration cycles and enabling the team to reliably reproduce, audit, and build on every experiment in a compliance-sensitive research environment.</li>
-            <li>Parallelised multi-GPU training across distributed clusters using Ray &mdash; reducing model training time from days to hours and enabling rapid experimentation across cardiac complication prediction architectures.</li>
+            <li>Architected a production agentic AI system giving clinicians conversational access to patient records &mdash; integrating MCP-powered tools, custom RAG with context prioritisation, and full auditability required for clinical compliance.</li>
+            <li>Deployed vLLM inference on Kubernetes with GPU load balancing and auto-scaling &mdash; achieving low-latency serving for real-time clinical queries in a regulated cloud environment.</li>
+            <li>Delivered 6 hours earlier detection of postoperative cardiac complications via deep learning on severely imbalanced clinical time-series &mdash; directly enabling earlier intervention and improved patient outcomes.</li>
+            <li>Parallelised multi-GPU training with Ray, cutting model training from days to hours and enabling rapid experimentation across prediction architectures.</li>
+            <li>Established end-to-end ML experiment tracking and dataset versioning (MLflow, DVC) &mdash; enabling reproducible, auditable experiments in a compliance-sensitive research environment.</li>
           </ul>
+          <div class="exp-tags">
+            <span class="exp-tag">Python</span><span class="exp-tag">PyTorch</span><span class="exp-tag">vLLM</span><span class="exp-tag">RAG</span><span class="exp-tag">MCP</span><span class="exp-tag">Kubernetes</span><span class="exp-tag">Ray</span><span class="exp-tag">MLflow</span><span class="exp-tag">GCP</span>
+          </div>
         </div>
       </div>
 
@@ -172,6 +179,9 @@
             <li>Designed and shipped an object detection model for automated document information extraction &mdash; reducing manual processing workload by 40% and enabling the operations team to reallocate significant engineering hours to higher-value work.</li>
             <li>Built an NLP email classification system that automatically categorised incoming support tickets by problem type and severity &mdash; cutting manual triage effort by 25% and reducing response latency by auto-populating tickets with relevant context via an RNN-based exception detection model.</li>
           </ul>
+          <div class="exp-tags">
+            <span class="exp-tag">Python</span><span class="exp-tag">PyTorch</span><span class="exp-tag">Object Detection</span><span class="exp-tag">NLP</span><span class="exp-tag">Scikit-learn</span>
+          </div>
         </div>
       </div>
 
@@ -187,6 +197,9 @@
             <li>Led BDO&rsquo;s inaugural international advisory engagement &mdash; advising the European Central Bank directly on a major bank&rsquo;s asset quality review, operating at the intersection of quantitative risk modelling and senior institutional decision-making.</li>
             <li>Engineered an R-based loan selection algorithm that cut portfolio selection time by 50% &mdash; enabling analysts to process significantly larger loan books with greater rigour and surfacing risk concentrations that manual selection methods routinely missed.</li>
           </ul>
+          <div class="exp-tags">
+            <span class="exp-tag">R</span><span class="exp-tag">Quantitative Finance</span><span class="exp-tag">Risk Modelling</span>
+          </div>
         </div>
       </div>
     </div>
@@ -199,7 +212,7 @@
       <div class="skill-card">
         <div class="skill-cat">LLM &amp; Agentic AI</div>
         <div class="skill-tags">
-          <span class="skill-tag">LLM Systems</span><span class="skill-tag">Agentic AI</span><span class="skill-tag">MCP</span><span class="skill-tag">RAG Pipelines</span><span class="skill-tag">DSPy</span><span class="skill-tag">LangChain</span><span class="skill-tag">OpenWebUI</span><span class="skill-tag">vLLM</span><span class="skill-tag">Hugging Face</span>
+          <span class="skill-tag">LLM Systems</span><span class="skill-tag">Agentic AI</span><span class="skill-tag">MCP Servers</span><span class="skill-tag">RAG Pipelines</span><span class="skill-tag">DSPy</span><span class="skill-tag">LangChain</span><span class="skill-tag">vLLM</span>
         </div>
       </div>
       <div class="skill-card">
@@ -215,21 +228,21 @@
         </div>
       </div>
       <div class="skill-card">
-        <div class="skill-cat">Data &amp; Storage</div>
+        <div class="skill-cat">Data &amp; Compute</div>
         <div class="skill-tags">
-          <span class="skill-tag">Vector DB</span><span class="skill-tag">Streaming</span><span class="skill-tag">Multi-GPU Clusters</span><span class="skill-tag">Distributed Training</span><span class="skill-tag">Parallelization</span>
+          <span class="skill-tag">Vector DB</span><span class="skill-tag">Streaming Pipelines</span><span class="skill-tag">Multi-GPU Clusters</span><span class="skill-tag">Distributed Training</span><span class="skill-tag">R</span>
         </div>
       </div>
       <div class="skill-card">
-        <div class="skill-cat">Engineering</div>
+        <div class="skill-cat">Software Engineering</div>
         <div class="skill-tags">
-          <span class="skill-tag">System Design</span><span class="skill-tag">Linux</span><span class="skill-tag">Git</span><span class="skill-tag">Claude Code</span><span class="skill-tag">Docker Compose</span><span class="skill-tag">Technical Documentation</span>
+          <span class="skill-tag">System Design</span><span class="skill-tag">Linux</span><span class="skill-tag">Git</span><span class="skill-tag">Docker Compose</span><span class="skill-tag">Technical Documentation</span>
         </div>
       </div>
       <div class="skill-card">
-        <div class="skill-cat">Team &amp; Process</div>
+        <div class="skill-cat">Domain &amp; Leadership</div>
         <div class="skill-tags">
-          <span class="skill-tag">Agile / Sprints</span><span class="skill-tag">Cross-functional Collaboration</span><span class="skill-tag">R</span><span class="skill-tag">Quantitative Finance</span>
+          <span class="skill-tag">Healthcare AI</span><span class="skill-tag">Quantitative Finance</span><span class="skill-tag">Agile / Sprints</span><span class="skill-tag">Cross-functional Teams</span>
         </div>
       </div>
     </div>
