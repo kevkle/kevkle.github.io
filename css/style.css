@@ -351,7 +351,7 @@ header {
 .skill-card::after { content: ''; position: absolute; top:0; left:0; width:3px; height:0; background:var(--accent); transition:height 0.3s; }
 .skill-card:hover::after { height: 100%; }
 .skill-cat { font-family: 'DM Mono', monospace; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 14px; }
-.skill-desc { font-size: 0.82rem; color: var(--text); line-height: 1.7; margin-bottom: 24px; }
+.skill-desc { font-size: 0.82rem; color: var(--text); line-height: 1.7; padding-bottom: 20px; margin-bottom: 20px; border-bottom: 1px solid var(--border); }
 .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
 .skill-tag { font-family: 'DM Mono', monospace; font-size: 0.7rem; padding: 4px 10px; background: var(--surface); border: 1px solid var(--border); color: var(--text); border-radius: 2px; }
 
