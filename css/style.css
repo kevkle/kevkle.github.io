@@ -312,10 +312,11 @@ header {
   gap: 60px;
   align-items: start;
 }
-.about-body { font-size: 1rem; color: var(--text); line-height: 1.85; margin-bottom: 16px; }
+.about-body { font-size: 1rem; color: var(--text); line-height: 1.85; margin-bottom: 1.85em; }
 .about-body:last-child { margin-bottom: 0; }
-.about-bottom { margin-top: 48px; }
-.about-nav { display: flex; gap: 24px; }
+.about-bottom { margin-top: 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+.about-bottom .pill-row { margin-top: 0; }
+.about-nav { display: flex; gap: 24px; grid-column: 1 / -1; }
 .pill-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 32px; }
 .pill {
   padding: 5px 14px;
@@ -574,7 +575,7 @@ header {
 /* RESPONSIVE */
 @media (max-width: 768px) {
   .header-photo { display: none; }
-  .about-grid, .contact-wrap { grid-template-columns: 1fr; gap: 40px; }
+  .about-grid, .contact-wrap, .about-bottom { grid-template-columns: 1fr; gap: 40px; }
   .proj-grid { gap: 16px; }
   .exp-item, .edu-item { grid-template-columns: 1fr; gap: 10px; }
   .tab-btn { padding: 14px 16px; font-size: 0.65rem; }
