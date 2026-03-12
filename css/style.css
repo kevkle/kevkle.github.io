@@ -381,6 +381,25 @@ header {
   margin-bottom: 18px;
 }
 
+.proj-skill {
+  padding: 14px 18px;
+  border-left: 2px solid var(--border);
+  background: var(--surface);
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+.proj-skill-label {
+  display: block;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+
 .proj-outcome {
   padding: 14px 18px;
   border-left: 2px solid var(--accent);
