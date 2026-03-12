@@ -7,6 +7,7 @@
  *   - Arrow-key / Home / End keyboard navigation
  *   - Hash-based deep-linking (#about, #experience, …)
  *   - Active-tab CSS via aria-selected attribute
+ *   - Focus management on tab switch
  *   - Footer copyright year
  */
 
@@ -36,6 +37,15 @@
     var panel = document.getElementById(panelId);
     if (panel) {
       panel.removeAttribute('hidden');
+    }
+  }
+
+  /** Move focus to the active panel for screen reader users */
+  function focusPanel(tab) {
+    var panelId = tab.getAttribute('aria-controls');
+    var panel = document.getElementById(panelId);
+    if (panel) {
+      panel.focus();
     }
   }
 
@@ -125,6 +135,7 @@
       tab.addEventListener('click', function () {
         setActive(tab, tabEls, panelEls);
         syncHash(tab);
+        focusPanel(tab);
       });
       tab.addEventListener('keydown', keyHandler);
     });
@@ -149,7 +160,7 @@
         if (targetTab) {
           setActive(targetTab, tabEls, panelEls);
           syncHash(targetTab);
-          targetTab.focus();
+          focusPanel(targetTab);
         }
       });
     });
