@@ -104,8 +104,56 @@
         next.focus();
         setActive(next, tabs, panels);
         syncHash(next);
+        updateTabIndicator(next);
       }
     };
+  }
+
+  // ----------------------------------------------------------------
+  // Count-up animation
+  // ----------------------------------------------------------------
+
+  /** Animate a number counting up from 0 to data-count value */
+  function countUp(el, skipAnimation) {
+    var target = parseInt(el.dataset.count, 10);
+    var suffix = el.dataset.suffix || '';
+
+    if (skipAnimation || isNaN(target)) {
+      el.textContent = target + suffix;
+      return;
+    }
+
+    var duration = 1200; // ms
+    var start = null;
+
+    el.textContent = '0' + suffix;
+
+    function step(timestamp) {
+      if (!start) start = timestamp;
+      var progress = Math.min((timestamp - start) / duration, 1);
+      // Ease-out: 1 - (1 - p)^3
+      var eased = 1 - Math.pow(1 - progress, 3);
+      var current = Math.round(eased * target);
+      el.textContent = current + suffix;
+
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      }
+    }
+
+    requestAnimationFrame(step);
+  }
+
+  // ----------------------------------------------------------------
+  // Tab sliding indicator
+  // ----------------------------------------------------------------
+
+  /** Position the sliding tab indicator */
+  function updateTabIndicator(tab) {
+    var wrap = tab.closest('.tabs-wrap');
+    if (!wrap) return;
+    wrap.style.setProperty('--tab-left', tab.offsetLeft + 'px');
+    wrap.style.setProperty('--tab-width', tab.offsetWidth + 'px');
   }
 
   // ----------------------------------------------------------------
@@ -136,6 +184,7 @@
         setActive(tab, tabEls, panelEls);
         syncHash(tab);
         focusPanel(tab);
+        updateTabIndicator(tab);
       });
       tab.addEventListener('keydown', keyHandler);
     });
@@ -146,6 +195,7 @@
       || tabEls[0];
 
     setActive(initial, tabEls, panelEls);
+    updateTabIndicator(initial);
     // Don't write a hash on first load if there isn't one already
     if (window.location.hash) {
       syncHash(initial);
@@ -161,6 +211,7 @@
           setActive(targetTab, tabEls, panelEls);
           syncHash(targetTab);
           focusPanel(targetTab);
+          updateTabIndicator(targetTab);
         }
       });
     });
@@ -176,6 +227,7 @@
         if (targetTab) {
           setActive(targetTab, tabEls, panelEls);
           syncHash(targetTab);
+          updateTabIndicator(targetTab);
           targetTab.focus();
           var projectId = link.getAttribute('data-project');
           if (projectId) {
@@ -193,5 +245,53 @@
     });
 
     setFooterYear();
+
+    // ----------------------------------------------------------------
+    // Scroll reveal & count-up
+    // ----------------------------------------------------------------
+
+    var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    var revealObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+
+        var el = entry.target;
+
+        if (el.dataset.count !== undefined) {
+          countUp(el, prefersReducedMotion);
+        } else {
+          el.classList.add('revealed');
+        }
+
+        revealObserver.unobserve(el);
+      });
+    }, { threshold: 0.15 });
+
+    // Observe all .reveal elements
+    var revealEls = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
+    revealEls.forEach(function (el) { revealObserver.observe(el); });
+
+    // Observe all [data-count] elements
+    var countEls = Array.prototype.slice.call(document.querySelectorAll('[data-count]'));
+    countEls.forEach(function (el) { revealObserver.observe(el); });
+
+    // ----------------------------------------------------------------
+    // Cursor glow
+    // ----------------------------------------------------------------
+
+    if (!prefersReducedMotion) {
+      var glowTargets = Array.prototype.slice.call(
+        document.querySelectorAll('.proj-card, .contact-link')
+      );
+
+      glowTargets.forEach(function (el) {
+        el.addEventListener('mousemove', function (e) {
+          var rect = el.getBoundingClientRect();
+          el.style.setProperty('--mx', (e.clientX - rect.left) + 'px');
+          el.style.setProperty('--my', (e.clientY - rect.top) + 'px');
+        });
+      });
+    }
   });
 }());
