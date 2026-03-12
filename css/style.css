@@ -194,20 +194,6 @@ header {
 .tab-btn[aria-selected="true"] { color: var(--accent); border-bottom-color: var(--accent); }
 .tab-num { font-size: 0.6rem; opacity: 0.4; margin-right: 6px; }
 
-.tab-cta {
-  margin-left: auto;
-  padding: 18px 28px;
-  font-family: 'DM Mono', monospace;
-  font-size: 0.72rem;
-  letter-spacing: 0.1em;
-  color: var(--accent);
-  text-decoration: none;
-  white-space: nowrap;
-  display: flex;
-  align-items: center;
-  transition: opacity 0.25s;
-}
-.tab-cta:hover { opacity: 0.7; text-decoration: none; }
 
 /* PANELS */
 .panel { display: none; padding: 60px 0; animation: fadeUp 0.4s ease; }
@@ -416,7 +402,6 @@ header {
   .skills-grid { grid-template-columns: 1fr; }
   .exp-item, .edu-item { grid-template-columns: 1fr; gap: 10px; }
   .tab-btn { padding: 14px 16px; font-size: 0.65rem; }
-  .tab-cta { display: none; }
   .shell { padding: 0 20px 60px; }
 }
 
