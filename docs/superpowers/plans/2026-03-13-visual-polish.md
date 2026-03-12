@@ -76,6 +76,8 @@ git commit -m "feat: add scroll-reveal and stagger CSS animation classes"
 **Files:**
 - Modify: `css/style.css` — multiple sections
 
+**Note:** All line numbers reference the original `css/style.css` before any Chunk 1 modifications. Reference rules by their CSS selector text, not line numbers.
+
 - [ ] **Step 1: Enhance project card hover**
 
 At `css/style.css:450` (the `.proj-card:hover` rule), add `box-shadow`:
@@ -100,9 +102,8 @@ To:
 .pill:hover { border-color: var(--accent); color: var(--accent); background: rgba(0,229,160,0.04); transform: translateY(-2px); }
 ```
 
-After the `.exp-tag` block (line 438), add:
+Add `transition: all 0.2s;` inside the existing `.exp-tag` block (the one with `font-family: 'DM Mono'`), at the end before the closing brace. Then add a new hover rule after it:
 ```css
-.exp-tag { transition: all 0.2s; }
 .exp-tag:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
 ```
 
@@ -142,7 +143,7 @@ To:
 .impact-row:hover { background: rgba(0,229,160,0.04); border-left-color: var(--accent); }
 ```
 
-Remove the duplicate `.impact-row:hover` on line 383 since it's now merged into the rule above.
+Remove the existing `.impact-row:hover { background: rgba(0,229,160,0.04); }` rule (it's now merged into the new hover rule above). Keep the `.impact-row:hover .impact-num` rule — that one stays.
 
 - [ ] **Step 5: Verify hover effects in browser**
 
