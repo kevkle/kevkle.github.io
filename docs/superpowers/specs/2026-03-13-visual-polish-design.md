@@ -6,7 +6,7 @@ Add moderate-intensity animations and micro-interactions to kevkle.github.io usi
 
 ## Approach
 
-Pure CSS transitions/animations driven by a small vanilla JS layer (~80 lines). IntersectionObserver for scroll-triggered effects. No libraries.
+Pure CSS transitions/animations driven by vanilla JS additions to `main.js` (~80 additional lines). IntersectionObserver for scroll-triggered effects. No libraries.
 
 ## Files Modified
 
@@ -28,8 +28,9 @@ Elements fade and slide up when entering the viewport.
 **JS:**
 
 - Single `IntersectionObserver` with `threshold: 0.15`
-- On intersect: add `.revealed` class, then `unobserve` the element
-- On `DOMContentLoaded`: observe all `.reveal` elements
+- Observer callback: if element has `data-count`, run count-up logic (see Section 5); otherwise add `.revealed` class
+- After handling, `unobserve` the element
+- On `DOMContentLoaded`: observe all `.reveal` elements and all `[data-count]` elements
 
 **Applied to:**
 
@@ -49,7 +50,10 @@ Children of a group appear with incremental delay, creating a cascade effect.
 
 **CSS:**
 
-- `.stagger > *` — inherits `.reveal` behavior, adds `transition-delay: calc(var(--i, 0) * 80ms);`
+- `.stagger > *` — `opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease, transition-delay calc(var(--i, 0) * 80ms);`
+- `.stagger.revealed > *` — `opacity: 1; transform: translateY(0);`
+
+**Mechanism:** The `.stagger` container gets the `.reveal` class in HTML. The IntersectionObserver observes the container and adds `.revealed` to it on intersection. This cascades to children via the `.stagger.revealed > *` rule. Individual children are NOT observed — only the parent container.
 
 **HTML:**
 
@@ -84,11 +88,13 @@ Children of a group appear with incremental delay, creating a cascade effect.
 
 **Sliding indicator:**
 
+- `.tabs-wrap` gets `position: relative` (not currently set — must be added)
 - `.tabs-wrap::after` pseudo-element positioned absolutely at bottom
 - `height: 2px; background: var(--accent);`
-- Positioned via CSS custom properties `--tab-left` and `--tab-width` with `transform: translateX(var(--tab-left)); width: var(--tab-width));`
-- JS updates these properties on tab switch using `tab.offsetLeft` and `tab.offsetWidth`
-- Remove `border-bottom` from `.tab-btn[aria-selected="true"]`
+- Two separate properties: `width: var(--tab-width); transform: translateX(var(--tab-left));`
+- Add `transition: transform 0.3s ease, width 0.3s ease;` so the indicator slides rather than jumping
+- JS updates `--tab-left` and `--tab-width` on tab switch using `tab.offsetLeft` and `tab.offsetWidth`
+- Set `border-bottom-color: transparent` on `.tab-btn[aria-selected="true"]` (preserves border for layout, hides it visually)
 
 **Panel transition:**
 
@@ -103,7 +109,8 @@ Children of a group appear with incremental delay, creating a cascade effect.
 - `data-count="8"` with `data-suffix="+"` renders as "8+"
 - Duration: 1.2s with ease-out curve
 - Uses `requestAnimationFrame` loop
-- Triggered by IntersectionObserver (same observer, checked via `data-count`)
+- Triggered by IntersectionObserver — the shared observer callback checks `el.dataset.count`: if present, run count-up; otherwise add `.revealed`
+- Clearing happens on intersection (not on DOMContentLoaded) — element text is set to "0" + suffix, then animated up. If JS never intersects, the original HTML text remains visible
 
 **HTML changes:**
 
@@ -115,26 +122,27 @@ Children of a group appear with incremental delay, creating a cascade effect.
 **Fallback:**
 
 - Numbers are visible in HTML by default
-- JS clears and re-animates on scroll — if JS fails, numbers remain as-is
+- If JS fails, numbers remain as-is (original text in HTML)
 
 ### 6. Cursor Glow
 
 **JS:**
 
-- On `mouseenter` for `.proj-card` and `.contact-link`: start tracking `mousemove`
+- On `mouseenter` for `.proj-card` and `.contact-link` (not `.contact-location`): start tracking `mousemove`
 - On `mousemove`: set `--mx` and `--my` CSS custom properties to cursor position relative to element
 - On `mouseleave`: stop tracking
 
 **CSS:**
 
-- `.proj-card` and `.contact-link` get `position: relative; overflow: hidden;` (already set on proj-card)
+- `.proj-card` already has `position: relative; overflow: hidden;`
+- `.contact-link` needs `position: relative; overflow: hidden;` added (not currently set)
 - New `::before` on these elements:
   - `content: ''; position: absolute; inset: 0; pointer-events: none;`
   - `background: radial-gradient(250px circle at var(--mx) var(--my), rgba(0,229,160,0.06), transparent);`
   - `opacity: 0; transition: opacity 0.3s;`
 - On `:hover::before` — `opacity: 1;`
 
-**Note:** `.proj-card::after` is already used for the left bar animation. Cursor glow uses `::before`.
+**Note:** `.proj-card::after` is already used for the left bar animation. Cursor glow uses `::before`. The `overflow: hidden` on `.contact-link` will not clip the 4px `translateX` on `.contact-link-icon` because the icon text sits well within the padding area.
 
 ## Reduced Motion
 
@@ -143,8 +151,15 @@ All features wrapped in:
 ```css
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
-  .stagger > * { transition-delay: 0ms; }
-  /* cursor glow and hover transforms also disabled */
+  .stagger > * { opacity: 1; transform: none; transition: none; }
+  .stagger.revealed > * { opacity: 1; transform: none; }
+  .proj-card::before,
+  .contact-link::before { display: none; }
+  .pill:hover,
+  .exp-tag:hover { transform: none; }
+  .contact-link-icon { transition: none; }
+  .impact-row { transition: none; }
+  .tabs-wrap::after { transition: none; }
 }
 ```
 
@@ -153,7 +168,7 @@ JS checks `window.matchMedia('(prefers-reduced-motion: reduce)')` and skips coun
 ## Performance
 
 - Single IntersectionObserver instance for all scroll effects
-- `will-change: transform` only on actively animating elements (blobs already have it)
+- `.reveal` elements get `will-change: transform, opacity` in CSS; removed after `.revealed` is added (via CSS: `.revealed { will-change: auto; }`)
 - Cursor glow uses CSS custom properties — no layout thrashing
 - All transitions use `transform` and `opacity` only (GPU composited)
 
