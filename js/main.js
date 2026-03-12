@@ -154,6 +154,33 @@
       });
     });
 
+    // Project cross-links from Experience bullets
+    var projLinks = Array.prototype.slice.call(
+      document.querySelectorAll('.proj-link[data-tab]')
+    );
+    projLinks.forEach(function (link) {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        var targetTab = document.getElementById(link.getAttribute('data-tab'));
+        if (targetTab) {
+          setActive(targetTab, tabEls, panelEls);
+          syncHash(targetTab);
+          targetTab.focus();
+          var projectId = link.getAttribute('data-project');
+          if (projectId) {
+            requestAnimationFrame(function () {
+              var card = document.getElementById(projectId);
+              if (card) {
+                card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                card.style.borderColor = 'var(--accent)';
+                setTimeout(function () { card.style.borderColor = ''; }, 1500);
+              }
+            });
+          }
+        }
+      });
+    });
+
     setFooterYear();
   });
 }());

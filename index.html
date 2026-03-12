@@ -70,9 +70,10 @@
     <nav class="tabs-wrap" aria-label="Portfolio sections" role="tablist">
       <button role="tab" id="tab-about" aria-controls="panel-about" aria-selected="true" class="tab-btn"><span class="tab-num">01</span>About</button>
       <button role="tab" id="tab-experience" aria-controls="panel-experience" aria-selected="false" class="tab-btn" tabindex="-1"><span class="tab-num">02</span>Experience</button>
-      <button role="tab" id="tab-skills" aria-controls="panel-skills" aria-selected="false" class="tab-btn" tabindex="-1"><span class="tab-num">03</span>Skills</button>
-      <button role="tab" id="tab-education" aria-controls="panel-education" aria-selected="false" class="tab-btn" tabindex="-1"><span class="tab-num">04</span>Education</button>
-      <button role="tab" id="tab-contact" aria-controls="panel-contact" aria-selected="false" class="tab-btn" tabindex="-1"><span class="tab-num">05</span>Contact</button>
+      <button role="tab" id="tab-projects" aria-controls="panel-projects" aria-selected="false" class="tab-btn" tabindex="-1"><span class="tab-num">03</span>Projects</button>
+      <button role="tab" id="tab-skills" aria-controls="panel-skills" aria-selected="false" class="tab-btn" tabindex="-1"><span class="tab-num">04</span>Skills</button>
+      <button role="tab" id="tab-education" aria-controls="panel-education" aria-selected="false" class="tab-btn" tabindex="-1"><span class="tab-num">05</span>Education</button>
+      <button role="tab" id="tab-contact" aria-controls="panel-contact" aria-selected="false" class="tab-btn" tabindex="-1"><span class="tab-num">06</span>Contact</button>
     </nav>
   </div>
 
@@ -139,6 +140,7 @@
           <span class="pill">MLflow / DVC</span>
         </div>
         <a href="#experience" class="panel-nav-link" data-tab="tab-experience">Full work history in Experience &rarr;</a>
+        <a href="#projects" class="panel-nav-link" data-tab="tab-projects" style="margin-left: 24px;">Project deep-dives &rarr;</a>
       </div>
     </div>
   </section>
@@ -156,10 +158,10 @@
         <div>
           <div class="exp-title">Senior AI Engineer</div>
           <ul class="exp-bullets">
-            <li>Architected a production agentic AI system giving clinicians conversational access to patient records &mdash; integrating MCP-powered tools, custom RAG with context prioritisation, and full auditability required for clinical compliance.</li>
-            <li>Deployed vLLM inference on Kubernetes with GPU load balancing and auto-scaling &mdash; achieving low-latency serving for real-time clinical queries in a regulated cloud environment.</li>
-            <li>Delivered 6 hours earlier detection of postoperative cardiac complications via deep learning on severely imbalanced clinical time-series &mdash; directly enabling earlier intervention and improved patient outcomes.</li>
-            <li>Parallelised multi-GPU training with Ray, cutting model training from days to hours and enabling rapid experimentation across prediction architectures.</li>
+            <li>Architected and shipped a production agentic AI system to clinical deployment &mdash; trusted in regulated hospital environments with full compliance auditability. <a class="proj-link" href="#projects" data-tab="tab-projects" data-project="proj-clinical-agent">case study &rarr;</a></li>
+            <li>Achieved low-latency LLM serving for real-time clinical queries via GPU-optimised Kubernetes deployment with auto-scaling. <a class="proj-link" href="#projects" data-tab="tab-projects" data-project="proj-clinical-agent">case study &rarr;</a></li>
+            <li>Delivered 6 hours earlier detection of postoperative cardiac complications &mdash; directly enabling earlier intervention and improved patient outcomes. <a class="proj-link" href="#projects" data-tab="tab-projects" data-project="proj-complication-prediction">case study &rarr;</a></li>
+            <li>Cut model training time from days to hours via parallelised multi-GPU training with Ray, enabling rapid experimentation across architectures. <a class="proj-link" href="#projects" data-tab="tab-projects" data-project="proj-complication-prediction">case study &rarr;</a></li>
             <li>Established end-to-end ML experiment tracking and dataset versioning (MLflow, DVC) &mdash; enabling reproducible, auditable experiments in a compliance-sensitive research environment.</li>
           </ul>
           <div class="exp-tags">
@@ -177,8 +179,8 @@
         <div>
           <div class="exp-title">Data Scientist</div>
           <ul class="exp-bullets">
-            <li>Designed and shipped an object detection model for automated document information extraction &mdash; reducing manual processing workload by 40% and enabling the operations team to reallocate significant engineering hours to higher-value work.</li>
-            <li>Built an NLP email classification system that automatically categorised incoming support tickets by problem type and severity &mdash; cutting manual triage effort by 25% and reducing response latency by auto-populating tickets with relevant context via an RNN-based exception detection model.</li>
+            <li>Reduced manual document processing workload by 40% via an automated extraction pipeline &mdash; freeing the operations team to focus on higher-value work. <a class="proj-link" href="#projects" data-tab="tab-projects" data-project="proj-doc-extraction">case study &rarr;</a></li>
+            <li>Cut manual email triage effort by 25% with an NLP classification system that auto-routed support tickets and pre-populated context. <a class="proj-link" href="#projects" data-tab="tab-projects" data-project="proj-email-classification">case study &rarr;</a></li>
           </ul>
           <div class="exp-tags">
             <span class="exp-tag">Python</span><span class="exp-tag">PyTorch</span><span class="exp-tag">Object Detection</span><span class="exp-tag">NLP</span><span class="exp-tag">Scikit-learn</span>
@@ -206,9 +208,77 @@
     </div>
   </section>
 
+  <!-- PROJECTS -->
+  <section role="tabpanel" id="panel-projects" aria-labelledby="tab-projects" class="panel" hidden style="position:relative">
+    <div class="panel-index">03</div>
+    <div class="proj-grid">
+
+      <div class="proj-card" id="proj-clinical-agent">
+        <div class="proj-header">
+          <div class="proj-title">Clinical Agentic AI System</div>
+          <div class="proj-meta">X-cardiac &middot; 2022&ndash;2026</div>
+        </div>
+        <p class="proj-desc">Clinicians needed conversational, real-time access to structured patient records &mdash; but existing tools couldn&rsquo;t meet the auditability and accuracy demands of a regulated clinical environment. Built a production agentic system powered by MCP tools and custom RAG with context prioritisation, deployed on Kubernetes with vLLM inference, GPU load balancing, and auto-scaling for low-latency serving.</p>
+        <div class="proj-outcome">
+          <span class="proj-outcome-label">Outcome</span>
+          Production agentic system trusted in regulated clinical environments &mdash; giving doctors real-time, auditable access to patient data.
+        </div>
+        <div class="exp-tags">
+          <span class="exp-tag">Python</span><span class="exp-tag">vLLM</span><span class="exp-tag">MCP</span><span class="exp-tag">RAG</span><span class="exp-tag">Kubernetes</span><span class="exp-tag">GCP</span>
+        </div>
+      </div>
+
+      <div class="proj-card" id="proj-complication-prediction">
+        <div class="proj-header">
+          <div class="proj-title">Postoperative Complication Prediction</div>
+          <div class="proj-meta">X-cardiac &middot; 2022&ndash;2026</div>
+        </div>
+        <p class="proj-desc">Post-cardiac-surgery complications were detected too late for optimal intervention. Developed deep learning models on severely imbalanced clinical time-series data, parallelising multi-GPU training with Ray to cut iteration cycles from days to hours. Full experiment reproducibility via MLflow tracking and DVC dataset versioning.</p>
+        <div class="proj-outcome">
+          <span class="proj-outcome-label">Outcome</span>
+          6 hours earlier detection of postoperative complications &mdash; directly enabling earlier clinical intervention.
+        </div>
+        <div class="exp-tags">
+          <span class="exp-tag">Python</span><span class="exp-tag">PyTorch</span><span class="exp-tag">Ray</span><span class="exp-tag">MLflow</span><span class="exp-tag">DVC</span><span class="exp-tag">Time-series</span>
+        </div>
+      </div>
+
+      <div class="proj-card" id="proj-doc-extraction">
+        <div class="proj-header">
+          <div class="proj-title">Automated Document Extraction</div>
+          <div class="proj-meta">4flow &middot; 2019&ndash;2021</div>
+        </div>
+        <p class="proj-desc">Manual processing of logistics documents created a persistent bottleneck in operations. Designed and shipped an object detection model for automated field extraction from scanned documents, enabling the operations team to reallocate significant engineering hours to higher-value work.</p>
+        <div class="proj-outcome">
+          <span class="proj-outcome-label">Outcome</span>
+          40% reduction in manual document processing workload.
+        </div>
+        <div class="exp-tags">
+          <span class="exp-tag">Python</span><span class="exp-tag">PyTorch</span><span class="exp-tag">Object Detection</span>
+        </div>
+      </div>
+
+      <div class="proj-card" id="proj-email-classification">
+        <div class="proj-header">
+          <div class="proj-title">Email Classification &amp; Triage</div>
+          <div class="proj-meta">4flow &middot; 2019&ndash;2021</div>
+        </div>
+        <p class="proj-desc">Manual email triage was slow, inconsistent, and consumed analyst time that could be spent on resolution. Built an NLP classification system that automatically categorised incoming support tickets by problem type and severity, with an RNN-based exception detection model that auto-populated tickets with relevant context.</p>
+        <div class="proj-outcome">
+          <span class="proj-outcome-label">Outcome</span>
+          25% reduction in manual triage effort and faster response times via auto-populated context.
+        </div>
+        <div class="exp-tags">
+          <span class="exp-tag">Python</span><span class="exp-tag">PyTorch</span><span class="exp-tag">NLP</span><span class="exp-tag">Scikit-learn</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
   <!-- SKILLS -->
   <section role="tabpanel" id="panel-skills" aria-labelledby="tab-skills" class="panel" hidden style="position:relative">
-    <div class="panel-index">03</div>
+    <div class="panel-index">04</div>
     <div class="skills-grid">
       <div class="skill-card">
         <div class="skill-cat">LLM &amp; Agentic AI</div>
@@ -243,7 +313,7 @@
 
   <!-- EDUCATION -->
   <section role="tabpanel" id="panel-education" aria-labelledby="tab-education" class="panel" hidden style="position:relative">
-    <div class="panel-index">04</div>
+    <div class="panel-index">05</div>
     <div class="edu-grid">
       <div class="edu-item">
         <div>
@@ -273,7 +343,7 @@
 
   <!-- CONTACT -->
   <section role="tabpanel" id="panel-contact" aria-labelledby="tab-contact" class="panel" hidden style="position:relative">
-    <div class="panel-index">05</div>
+    <div class="panel-index">06</div>
     <div class="contact-wrap">
       <div>
         <p class="contact-headline">Let's build something exceptional.</p>
