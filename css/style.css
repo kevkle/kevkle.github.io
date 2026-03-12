@@ -312,7 +312,10 @@ header {
   gap: 60px;
   align-items: start;
 }
-.about-body { font-size: 1rem; color: var(--text); line-height: 1.85; }
+.about-body { font-size: 1rem; color: var(--text); line-height: 1.85; margin-bottom: 16px; }
+.about-body:last-child { margin-bottom: 0; }
+.about-bottom { margin-top: 48px; }
+.about-nav { display: flex; gap: 24px; }
 .pill-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 32px; }
 .pill {
   padding: 5px 14px;
