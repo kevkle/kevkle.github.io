@@ -179,14 +179,6 @@ header {
   flex-shrink: 0;
 }
 
-.proof-line {
-  font-family: 'DM Mono', monospace;
-  font-size: 0.68rem;
-  color: var(--muted);
-  letter-spacing: 0.04em;
-  margin-top: 8px;
-}
-
 .header-availability {
   font-family: 'DM Mono', monospace;
   font-size: 0.72rem;
@@ -229,7 +221,7 @@ header {
   color: var(--accent);
   transition: background 0.2s, color 0.2s;
 }
-.cv-btn:hover {
+.header-contact .cv-btn:hover {
   background: var(--accent);
   color: var(--bg);
   text-decoration: none;
