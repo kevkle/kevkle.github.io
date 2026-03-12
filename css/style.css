@@ -593,6 +593,23 @@ header {
 .contact-link-icon { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em; min-width: 60px; transition: transform 0.25s; }
 .contact-link:hover .contact-link-icon { transform: translateX(4px); }
 .contact-link-val { font-size: 0.85rem; font-family: 'DM Mono', monospace; }
+
+/* Cursor glow */
+.proj-card::before,
+.contact-link::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(250px circle at var(--mx) var(--my), rgba(0,229,160,0.06), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.proj-card:hover::before,
+.contact-link:hover::before {
+  opacity: 1;
+}
+
 .contact-location { display: flex; align-items: center; gap: 16px; padding: 16px 20px; background: var(--card); border: 1px solid var(--border); color: var(--text); cursor: default; }
 .lang-grid { display: flex; flex-direction: column; gap: 16px; }
 .lang-item { display: flex; justify-content: space-between; align-items: center; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
