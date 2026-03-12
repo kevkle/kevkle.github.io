@@ -367,7 +367,7 @@ header {
   background: var(--card);
   transition: all 0.2s;
 }
-.pill:hover { border-color: var(--accent); color: var(--accent); background: rgba(0,229,160,0.04); }
+.pill:hover { border-color: var(--accent); color: var(--accent); background: rgba(0,229,160,0.04); transform: translateY(-2px); }
 
 .currently-building {
   margin-top: 32px;
@@ -415,10 +415,12 @@ header {
   gap: 20px;
   padding: 14px 0;
   border-bottom: 1px solid var(--border);
-  transition: background 0.2s;
+  border-left: 2px solid transparent;
+  padding-left: 12px;
+  transition: background 0.2s, border-color 0.2s;
 }
 .impact-row:last-child { border-bottom: none; }
-.impact-row:hover { background: rgba(0,229,160,0.04); }
+.impact-row:hover { background: rgba(0,229,160,0.04); border-left-color: var(--accent); }
 .impact-row:hover .impact-num { color: var(--accent) !important; }
 .impact-num {
   font-family: 'Playfair Display', serif;
@@ -473,7 +475,9 @@ header {
   color: var(--muted);
   border-radius: 0;
   letter-spacing: 0.04em;
+  transition: all 0.2s;
 }
+.exp-tag:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
 
 /* PROJECTS */
 .proj-grid { display: flex; flex-direction: column; gap: 20px; }
@@ -485,7 +489,7 @@ header {
   overflow: hidden;
   transition: border-color 0.25s, transform 0.25s;
 }
-.proj-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+.proj-card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0,229,160,0.08); }
 .proj-card::after {
   content: '';
   position: absolute;
@@ -586,7 +590,8 @@ header {
 .contact-links { display: flex; flex-direction: column; gap: 16px; }
 .contact-link { display: flex; align-items: center; gap: 16px; padding: 16px 20px; background: var(--card); border: 1px solid var(--border); text-decoration: none; color: var(--text); transition: all 0.25s; position: relative; overflow: hidden; }
 .contact-link:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
-.contact-link-icon { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em; min-width: 60px; }
+.contact-link-icon { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em; min-width: 60px; transition: transform 0.25s; }
+.contact-link:hover .contact-link-icon { transform: translateX(4px); }
 .contact-link-val { font-size: 0.85rem; font-family: 'DM Mono', monospace; }
 .contact-location { display: flex; align-items: center; gap: 16px; padding: 16px 20px; background: var(--card); border: 1px solid var(--border); color: var(--text); cursor: default; }
 .lang-grid { display: flex; flex-direction: column; gap: 16px; }
