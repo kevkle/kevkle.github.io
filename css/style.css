@@ -315,6 +315,7 @@ header {
 .about-body { font-size: 1rem; color: var(--text); line-height: 1.85; margin-bottom: 1.85em; }
 .about-body:last-child { margin-bottom: 0; }
 .about-bottom { margin-top: 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+.about-bottom .currently-building { margin-top: 0; }
 .about-bottom .pill-row { margin-top: 0; }
 .pill-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 32px; }
 .pill {
