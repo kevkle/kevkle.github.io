@@ -119,10 +119,12 @@ img { display: block; max-width: 100%; }
   transform: translateY(20px);
   transition: opacity 0.6s ease, transform 0.6s ease;
   transition-delay: calc(var(--i, 0) * 80ms);
+  will-change: transform, opacity;
 }
 .stagger.revealed > * {
   opacity: 1;
   transform: translateY(0);
+  will-change: auto;
 }
 
 /* Skip link */
@@ -665,7 +667,8 @@ header {
   .proj-card::before,
   .contact-link::before { display: none; }
   .pill:hover,
-  .exp-tag:hover { transform: none; }
+  .exp-tag:hover,
+  .proj-card:hover { transform: none; }
   .contact-link-icon { transition: none; }
   .impact-row { transition: none; }
   .tabs-wrap::after { transition: none; }
