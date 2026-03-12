@@ -18,6 +18,9 @@
   // Helpers
   // ----------------------------------------------------------------
 
+  /** Callback invoked after a tab switch; set later by scroll-reveal init */
+  var afterTabSwitch = null;
+
   /** @param {HTMLElement} tab */
   function setActive(tab, tabs, panels) {
     // Deactivate all
@@ -37,6 +40,10 @@
     var panel = document.getElementById(panelId);
     if (panel) {
       panel.removeAttribute('hidden');
+    }
+
+    if (afterTabSwitch) {
+      requestAnimationFrame(afterTabSwitch);
     }
   }
 
@@ -118,7 +125,10 @@
     var target = parseInt(el.dataset.count, 10);
     var suffix = el.dataset.suffix || '';
 
-    if (skipAnimation || isNaN(target)) {
+    if (isNaN(target)) return;
+    el._countedUp = true;
+
+    if (skipAnimation) {
       el.textContent = target + suffix;
       return;
     }
@@ -150,10 +160,12 @@
 
   /** Position the sliding tab indicator */
   function updateTabIndicator(tab) {
-    var wrap = tab.closest('.tabs-wrap');
-    if (!wrap) return;
-    wrap.style.setProperty('--tab-left', tab.offsetLeft + 'px');
-    wrap.style.setProperty('--tab-width', tab.offsetWidth + 'px');
+    requestAnimationFrame(function () {
+      var wrap = tab.closest('.tabs-wrap');
+      if (!wrap) return;
+      wrap.style.setProperty('--tab-left', tab.offsetLeft + 'px');
+      wrap.style.setProperty('--tab-width', tab.offsetWidth + 'px');
+    });
   }
 
   // ----------------------------------------------------------------
@@ -244,13 +256,19 @@
       });
     });
 
+    // Reposition tab indicator on window resize
+    window.addEventListener('resize', function () {
+      var active = document.querySelector('[role="tab"][aria-selected="true"]');
+      if (active) updateTabIndicator(active);
+    });
+
     setFooterYear();
 
     // ----------------------------------------------------------------
     // Scroll reveal & count-up
     // ----------------------------------------------------------------
 
-    var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
 
     var revealObserver = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
@@ -259,7 +277,7 @@
         var el = entry.target;
 
         if (el.dataset.count !== undefined) {
-          countUp(el, prefersReducedMotion);
+          countUp(el, reducedMotionQuery.matches);
         } else {
           el.classList.add('revealed');
         }
@@ -268,28 +286,42 @@
       });
     }, { threshold: 0.15 });
 
-    // Observe all .reveal elements
-    var revealEls = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
-    revealEls.forEach(function (el) { revealObserver.observe(el); });
+    /** Observe reveal/count-up elements; re-observe on tab switch for hidden panels */
+    function observeRevealElements() {
+      var revealEls = Array.prototype.slice.call(document.querySelectorAll('.reveal:not(.revealed)'));
+      revealEls.forEach(function (el) { revealObserver.observe(el); });
 
-    // Observe all [data-count] elements
-    var countEls = Array.prototype.slice.call(document.querySelectorAll('[data-count]'));
-    countEls.forEach(function (el) { revealObserver.observe(el); });
+      var countEls = Array.prototype.slice.call(document.querySelectorAll('[data-count]'));
+      countEls.forEach(function (el) {
+        if (!el._countedUp) revealObserver.observe(el);
+      });
+    }
+
+    observeRevealElements();
+
+    // Re-observe when panels become visible (hidden panels don't intersect)
+    afterTabSwitch = observeRevealElements;
 
     // ----------------------------------------------------------------
     // Cursor glow
     // ----------------------------------------------------------------
 
-    if (!prefersReducedMotion) {
+    if (!reducedMotionQuery.matches) {
       var glowTargets = Array.prototype.slice.call(
         document.querySelectorAll('.proj-card, .contact-link')
       );
 
       glowTargets.forEach(function (el) {
+        var pending = false;
         el.addEventListener('mousemove', function (e) {
-          var rect = el.getBoundingClientRect();
-          el.style.setProperty('--mx', (e.clientX - rect.left) + 'px');
-          el.style.setProperty('--my', (e.clientY - rect.top) + 'px');
+          if (pending) return;
+          pending = true;
+          requestAnimationFrame(function () {
+            var rect = el.getBoundingClientRect();
+            el.style.setProperty('--mx', (e.clientX - rect.left) + 'px');
+            el.style.setProperty('--my', (e.clientY - rect.top) + 'px');
+            pending = false;
+          });
         });
       });
     }
