@@ -1,31 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="color-scheme" content="dark" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark">
   <title>Kevin Klein — Senior AI Engineer</title>
 
   <!-- SEO -->
-  <meta name="description" content="Senior AI Engineer with 8+ years of experience designing, deploying, and scaling large-scale AI and LLM systems. Proven track record of architecting end-to-end LLM platforms including agentic AI workflows and retrieval-augmented generation (RAG)." />
-  <link rel="canonical" href="https://kevkle.github.io/" />
+  <meta name="description" content="Senior AI Engineer with 8+ years of experience designing, deploying, and scaling large-scale AI and LLM systems. Proven track record of architecting end-to-end LLM platforms including agentic AI workflows and retrieval-augmented generation (RAG).">
+  <link rel="canonical" href="https://kevkle.github.io/">
 
   <!-- Open Graph -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://kevkle.github.io/" />
-  <meta property="og:title" content="Kevin Klein — Senior AI Engineer" />
-  <meta property="og:description" content="Senior AI Engineer with 8+ years of experience designing, deploying, and scaling large-scale AI and LLM systems." />
-  <meta property="og:image" content="https://kevkle.github.io/assets/profile.jpg" />
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kevkle.github.io/">
+  <meta property="og:title" content="Kevin Klein — Senior AI Engineer">
+  <meta property="og:description" content="Senior AI Engineer with 8+ years of experience designing, deploying, and scaling large-scale AI and LLM systems.">
+  <meta property="og:image" content="https://kevkle.github.io/assets/profile.jpg">
 
   <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/style.css">
 
-  <!-- JSON-LD Structured Data -->
+  <!-- JSON-LD -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -35,24 +34,11 @@
     "url": "https://kevkle.github.io/",
     "image": "https://kevkle.github.io/assets/profile.jpg",
     "email": "kevinklein.dev@proton.me",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Tel Aviv",
-      "addressCountry": "Israel"
-    },
-    "sameAs": [
-      "https://linkedin.com/in/kevinklein93",
-      "https://github.com/kevkle"
-    ],
+    "address": { "@type": "PostalAddress", "addressLocality": "Tel Aviv", "addressCountry": "Israel" },
+    "sameAs": ["https://linkedin.com/in/kevinklein93", "https://github.com/kevkle"],
     "alumniOf": [
-      {
-        "@type": "EducationalOrganization",
-        "name": "ETH Zurich"
-      },
-      {
-        "@type": "EducationalOrganization",
-        "name": "Vienna University of Technology"
-      }
+      { "@type": "EducationalOrganization", "name": "ETH Zurich" },
+      { "@type": "EducationalOrganization", "name": "Vienna University of Technology" }
     ],
     "description": "Senior AI Engineer with 8+ years of experience designing, deploying, and scaling large-scale AI and LLM systems."
   }
@@ -60,452 +46,266 @@
 </head>
 <body>
 
-  <!-- ===================== HEADER ===================== -->
-  <header class="site-header">
-    <div class="header-inner">
-      <img
-        src="assets/profile.jpg"
-        alt="Kevin Klein profile photo"
-        class="profile-photo"
-        width="160"
-        height="160"
-      />
-      <div class="header-text">
-        <h1 class="site-name">Kevin Klein</h1>
-        <p class="site-title">Senior AI Engineer</p>
-        <p class="site-location">
-          <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/>
-            <circle cx="12" cy="10" r="3"/>
-          </svg>
-          Tel Aviv, Israel
-        </p>
+<div class="blob1"></div>
+<div class="blob2"></div>
+
+<div class="shell">
+
+  <header>
+    <div class="header-info">
+      <h1>Kevin Klein</h1>
+      <div class="role">Senior AI Engineer</div>
+      <div class="header-contact">
+        <div>Tel Aviv, Israel</div>
+        <a href="mailto:kevinklein.dev@proton.me">kevinklein.dev@proton.me</a><br>
+        <a href="https://www.linkedin.com/in/kevinklein93" target="_blank" rel="noopener noreferrer">linkedin.com/in/kevinklein93</a>
       </div>
+    </div>
+    <div class="header-photo">
+      <img src="assets/profile.jpg" alt="Kevin Klein" width="210" height="280">
     </div>
   </header>
 
-  <!-- ===================== TAB NAV ===================== -->
-  <div class="tabs-wrapper">
-    <nav aria-label="Portfolio sections">
-      <ul role="tablist" class="tablist">
-        <li role="presentation">
-          <button
-            role="tab"
-            id="tab-about"
-            aria-controls="panel-about"
-            aria-selected="true"
-            class="tab-btn tab-btn--active"
-          >About</button>
-        </li>
-        <li role="presentation">
-          <button
-            role="tab"
-            id="tab-experience"
-            aria-controls="panel-experience"
-            aria-selected="false"
-            class="tab-btn"
-            tabindex="-1"
-          >Experience</button>
-        </li>
-        <li role="presentation">
-          <button
-            role="tab"
-            id="tab-skills"
-            aria-controls="panel-skills"
-            aria-selected="false"
-            class="tab-btn"
-            tabindex="-1"
-          >Skills</button>
-        </li>
-        <li role="presentation">
-          <button
-            role="tab"
-            id="tab-education"
-            aria-controls="panel-education"
-            aria-selected="false"
-            class="tab-btn"
-            tabindex="-1"
-          >Education</button>
-        </li>
-        <li role="presentation">
-          <button
-            role="tab"
-            id="tab-contact"
-            aria-controls="panel-contact"
-            aria-selected="false"
-            class="tab-btn"
-            tabindex="-1"
-          >Contact</button>
-        </li>
-      </ul>
-    </nav>
-  </div>
+  <nav class="tabs-wrap" aria-label="Portfolio sections" role="tablist">
+    <button role="tab" id="tab-about" aria-controls="panel-about" aria-selected="true" class="tab-btn"><span class="tab-num">01</span>About</button>
+    <button role="tab" id="tab-experience" aria-controls="panel-experience" aria-selected="false" class="tab-btn" tabindex="-1"><span class="tab-num">02</span>Experience</button>
+    <button role="tab" id="tab-skills" aria-controls="panel-skills" aria-selected="false" class="tab-btn" tabindex="-1"><span class="tab-num">03</span>Skills</button>
+    <button role="tab" id="tab-education" aria-controls="panel-education" aria-selected="false" class="tab-btn" tabindex="-1"><span class="tab-num">04</span>Education</button>
+    <button role="tab" id="tab-contact" aria-controls="panel-contact" aria-selected="false" class="tab-btn" tabindex="-1"><span class="tab-num">05</span>Contact</button>
+  </nav>
 
-  <!-- ===================== MAIN CONTENT ===================== -->
-  <main class="main-content">
-
-    <!-- ===== PANEL: ABOUT ===== -->
-    <section
-      role="tabpanel"
-      id="panel-about"
-      aria-labelledby="tab-about"
-      class="tabpanel"
-    >
-      <div class="panel-inner">
-        <h2 class="panel-heading">About Me</h2>
-        <p class="about-summary">
-          Senior AI Engineer with 8+ years of experience designing, deploying, and scaling large-scale AI and LLM
-          systems. Proven track record of architecting end-to-end LLM platforms &mdash; including agentic AI workflows
-          and retrieval-augmented generation (RAG) &mdash; from data ingestion and knowledge retrieval to GPU-optimized
-          inference and Kubernetes-based deployment in regulated, high-impact environments such as healthcare. Strong
-          background in MLOps, distributed systems, and applied deep learning, with a strong mathematical foundation
-          from ETH Zurich.
+  <!-- ABOUT -->
+  <section role="tabpanel" id="panel-about" aria-labelledby="tab-about" class="panel" style="position:relative">
+    <div class="panel-index">01</div>
+    <div class="about-grid">
+      <div>
+        <div class="impact-label">Key Results</div>
+        <div class="impact-row">
+          <span class="impact-num">8+</span>
+          <div class="impact-text">
+            <span class="impact-title">Years of depth</span>
+            <span class="impact-sub">Agentic AI · Machine Learning · MLOps</span>
+          </div>
+        </div>
+        <div class="impact-row">
+          <span class="impact-num" style="color:#fff;">6h</span>
+          <div class="impact-text">
+            <span class="impact-title">Earlier post-cardiac surgery risk prediction</span>
+            <span class="impact-sub">Complication forecasting deployed in clinical production</span>
+          </div>
+        </div>
+        <div class="impact-row">
+          <span class="impact-num" style="color:#fff;">40%</span>
+          <div class="impact-text">
+            <span class="impact-title">Operational workload cut</span>
+            <span class="impact-sub">Via computer vision &amp; NLP automation pipelines</span>
+          </div>
+        </div>
+        <div class="impact-row">
+          <span class="impact-num" style="font-size:1.3rem; letter-spacing:0.05em; color:#fff;">PROD</span>
+          <div class="impact-text">
+            <span class="impact-title">Agentic AI system in clinical use</span>
+            <span class="impact-sub">Trusted in regulated hospital environments</span>
+          </div>
+        </div>
+        <div class="impact-row">
+          <span class="impact-num" style="font-size:1.1rem; line-height:1.2; letter-spacing:-0.02em;">ETH<br>Zürich</span>
+          <div class="impact-text">
+            <span class="impact-title">Magna Cum Laude</span>
+            <span class="impact-sub">M.Sc. Applied Mathematics · first-principles engineering</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p class="about-body">
+          Senior AI Engineer with 8+ years of depth across LLM systems, agentic AI workflows, retrieval-augmented generation, and production MLOps. Currently shipping end-to-end AI platforms in regulated healthcare environments where reliability, auditability, and latency all matter — including a post-cardiac surgery complication prediction system that extends the clinical intervention window by up to 6 hours.
+          <br><br>
+          My ML toolkit spans deep learning on imbalanced time-series, object detection, RNN-based sequence models, and NLP classification — applied across healthcare, logistics, and finance. Proficient in the full model lifecycle: experiment design with MLflow &amp; DVC, distributed training via Ray on multi-GPU clusters, and inference optimization with vLLM on Kubernetes.
+          <br><br>
+          Mathematical foundation from ETH Zürich (Quantitative Finance, Magna Cum Laude) gives me a rigorous edge in statistical modelling and algorithm design. I think in systems, not just models. Based in Tel Aviv, fluent in German, English, and Hebrew.
         </p>
-
-        <div class="highlights-grid">
-          <div class="highlight-card">
-            <span class="highlight-value">8+ Years</span>
-            <span class="highlight-label">AI &amp; ML Experience</span>
-          </div>
-          <div class="highlight-card">
-            <span class="highlight-value">ETH Zurich</span>
-            <span class="highlight-label">Quantitative Finance</span>
-          </div>
-          <div class="highlight-card">
-            <span class="highlight-value">Healthcare AI</span>
-            <span class="highlight-label">Regulated Environments</span>
-          </div>
-          <div class="highlight-card">
-            <span class="highlight-value">Full-Stack MLOps</span>
-            <span class="highlight-label">End-to-End Pipelines</span>
-          </div>
+        <div class="pill-row">
+          <span class="pill">LLM Systems</span>
+          <span class="pill">Agentic AI / MCP</span>
+          <span class="pill">RAG Pipelines</span>
+          <span class="pill">Healthcare AI</span>
+          <span class="pill">PyTorch</span>
+          <span class="pill">Deep Learning</span>
+          <span class="pill">Ray (Multi-GPU)</span>
+          <span class="pill">vLLM</span>
+          <span class="pill">Kubernetes</span>
+          <span class="pill">MLflow / DVC</span>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ===== PANEL: EXPERIENCE ===== -->
-    <section
-      role="tabpanel"
-      id="panel-experience"
-      aria-labelledby="tab-experience"
-      class="tabpanel"
-      hidden
-    >
-      <div class="panel-inner">
-        <h2 class="panel-heading">Experience</h2>
-
-        <ol class="timeline" reversed>
-
-          <li class="timeline-item">
-            <div class="timeline-marker" aria-hidden="true"></div>
-            <div class="timeline-content">
-              <div class="timeline-header">
-                <div>
-                  <h3 class="timeline-role">Senior AI Engineer</h3>
-                  <p class="timeline-company">X-cardiac</p>
-                </div>
-                <div class="timeline-meta">
-                  <span class="timeline-location">Berlin / Remote</span>
-                  <span class="timeline-period">02/2022 &ndash; Present</span>
-                </div>
-              </div>
-              <ul class="timeline-bullets">
-                <li>Architected and deployed an agentic AI system that bridges the gap between clinicians and complex healthcare data, enabling seamless conversational access to structured and unstructured patient records</li>
-                <li>Implemented a tool-capable agent powered by an MCP server to retrieve and process patient data from various healthcare sources</li>
-                <li>Engineered a custom RAG pipeline to enhance responses by prioritizing and leveraging superior context from private knowledge base</li>
-                <li>Deployed a high-performance LLM inference engine on a Kubernetes cluster using vLLM, optimizing GPU utilization and implementing load balancing for low-latency serving</li>
-                <li>Architected deep learning models to forecast postoperative cardiac complications using imbalanced time-series data, improving early intervention capabilities by up to 6 hours</li>
-                <li>Built MLflow and DVC pipelines to track model experiments and version datasets, ensuring reproducibility and data-driven decision making</li>
-                <li>Parallelized training runs across multi-GPU clusters using Ray, significantly accelerating model development cycles</li>
-              </ul>
-            </div>
-          </li>
-
-          <li class="timeline-item">
-            <div class="timeline-marker" aria-hidden="true"></div>
-            <div class="timeline-content">
-              <div class="timeline-header">
-                <div>
-                  <h3 class="timeline-role">Data Scientist</h3>
-                  <p class="timeline-company">4flow</p>
-                </div>
-                <div class="timeline-meta">
-                  <span class="timeline-location">Berlin</span>
-                  <span class="timeline-period">06/2019 &ndash; 06/2021</span>
-                </div>
-              </div>
-              <ul class="timeline-bullets">
-                <li>Designed an object detection model that detects and evaluates information from documents and thereby reducing workload by 40%</li>
-                <li>Built an NLP application that automatically classifies e-mails based on problems and decreased manual effort by 25%</li>
-                <li>Developed an RNN model that obtained e-mails from ticket system, returns exception class and filled ticket with appropriate information</li>
-              </ul>
-            </div>
-          </li>
-
-          <li class="timeline-item">
-            <div class="timeline-marker" aria-hidden="true"></div>
-            <div class="timeline-content">
-              <div class="timeline-header">
-                <div>
-                  <h3 class="timeline-role">Risk Analytics Consultant</h3>
-                  <p class="timeline-company">BDO Switzerland</p>
-                </div>
-                <div class="timeline-meta">
-                  <span class="timeline-location">Zurich</span>
-                  <span class="timeline-period">10/2016 &ndash; 06/2018</span>
-                </div>
-              </div>
-              <ul class="timeline-bullets">
-                <li>Led the first international advisory engagement for the firm, advising the European Central Bank on a major bank&rsquo;s asset quality review</li>
-                <li>Built an R-based algorithm that improved the loan selection process, decreasing the selection time by 50% and enabled a more efficient analysis of the loan portfolio for potential risks</li>
-              </ul>
-            </div>
-          </li>
-
-        </ol>
-      </div>
-    </section>
-
-    <!-- ===== PANEL: SKILLS ===== -->
-    <section
-      role="tabpanel"
-      id="panel-skills"
-      aria-labelledby="tab-skills"
-      class="tabpanel"
-      hidden
-    >
-      <div class="panel-inner">
-        <h2 class="panel-heading">Skills</h2>
-
-        <div class="skills-grid">
-
-          <div class="skill-group">
-            <h3 class="skill-group-heading">LLM &amp; AI</h3>
-            <ul class="tag-list" aria-label="LLM and AI skills">
-              <li class="tag">Agentic AI (MCP)</li>
-              <li class="tag">OpenWebUI</li>
-              <li class="tag">vLLM</li>
-              <li class="tag">Hugging Face</li>
-              <li class="tag">DSPy</li>
-              <li class="tag">LangChain</li>
-              <li class="tag">RAG Pipelines</li>
-              <li class="tag">Parallelization</li>
-              <li class="tag">Streaming</li>
-              <li class="tag">Grafana</li>
-              <li class="tag">Vector DB</li>
-            </ul>
-          </div>
-
-          <div class="skill-group">
-            <h3 class="skill-group-heading">Machine Learning</h3>
-            <ul class="tag-list" aria-label="Machine learning skills">
-              <li class="tag">Python</li>
-              <li class="tag">PyTorch</li>
-              <li class="tag">Ray</li>
-              <li class="tag">DVC</li>
-              <li class="tag">Scikit-learn</li>
-              <li class="tag">MLflow</li>
-              <li class="tag">Time-series Prediction</li>
-              <li class="tag">Imbalanced Classification</li>
-            </ul>
-          </div>
-
-          <div class="skill-group">
-            <h3 class="skill-group-heading">MLOps &amp; Infrastructure</h3>
-            <ul class="tag-list" aria-label="MLOps and infrastructure skills">
-              <li class="tag">Kubernetes</li>
-              <li class="tag">Docker</li>
-              <li class="tag">Docker Compose</li>
-              <li class="tag">GCP</li>
-              <li class="tag">Terraform</li>
-              <li class="tag">Argo CD</li>
-              <li class="tag">Linux</li>
-              <li class="tag">Git</li>
-              <li class="tag">CI/CD</li>
-              <li class="tag">Claude Code</li>
-            </ul>
-          </div>
-
-          <div class="skill-group">
-            <h3 class="skill-group-heading">Team Skills</h3>
-            <ul class="tag-list" aria-label="Team and collaboration skills">
-              <li class="tag">Agile / Sprint-based Development</li>
-              <li class="tag">Cross-functional Communication</li>
-              <li class="tag">Technical Documentation</li>
-              <li class="tag">System Design</li>
-            </ul>
-          </div>
-
+  <!-- EXPERIENCE -->
+  <section role="tabpanel" id="panel-experience" aria-labelledby="tab-experience" class="panel" hidden style="position:relative">
+    <div class="panel-index">02</div>
+    <div class="exp-list">
+      <div class="exp-item">
+        <div>
+          <div class="exp-period">02/2022 — Present</div>
+          <div class="exp-company">X-cardiac</div>
+          <div class="exp-location">Berlin / Remote</div>
+        </div>
+        <div>
+          <div class="exp-title">Senior AI Engineer</div>
+          <ul class="exp-bullets">
+            <li>Delivered a production-grade agentic AI platform for clinicians, cutting time-to-insight on complex patient records from hours to seconds via conversational, MCP-powered data access.</li>
+            <li>Built a custom RAG pipeline over a private clinical knowledge base, measurably improving response accuracy over baseline LLM outputs in domain-specific evaluations.</li>
+            <li>Deployed vLLM inference on Kubernetes with GPU load balancing, achieving low-latency serving at scale without proportional infrastructure cost increases.</li>
+            <li>Designed deep learning models predicting post-cardiac surgery complications on highly imbalanced time-series data — extending the clinical intervention window by up to 6 hours.</li>
+            <li>Accelerated model iteration cycles by parallelizing training across multi-GPU clusters with Ray, reducing experiment turnaround and enabling faster clinical validation.</li>
+            <li>Established full ML reproducibility with MLflow + DVC pipelines, enabling the team to reliably rebuild any model state and audit experiment history.</li>
+          </ul>
         </div>
       </div>
-    </section>
 
-    <!-- ===== PANEL: EDUCATION ===== -->
-    <section
-      role="tabpanel"
-      id="panel-education"
-      aria-labelledby="tab-education"
-      class="tabpanel"
-      hidden
-    >
-      <div class="panel-inner">
-        <h2 class="panel-heading">Education</h2>
-
-        <ol class="timeline" reversed>
-
-          <li class="timeline-item">
-            <div class="timeline-marker" aria-hidden="true"></div>
-            <div class="timeline-content">
-              <div class="timeline-header">
-                <div>
-                  <h3 class="timeline-role">M.Sc. in Quantitative Finance</h3>
-                  <p class="timeline-company">ETH Zurich</p>
-                </div>
-                <div class="timeline-meta">
-                  <span class="timeline-location">Zurich</span>
-                  <span class="timeline-period">09/2014 &ndash; 06/2016</span>
-                </div>
-              </div>
-              <ul class="timeline-bullets">
-                <li>Magna Cum Laude</li>
-                <li>Thesis: Order book models and price formation</li>
-              </ul>
-            </div>
-          </li>
-
-          <li class="timeline-item">
-            <div class="timeline-marker" aria-hidden="true"></div>
-            <div class="timeline-content">
-              <div class="timeline-header">
-                <div>
-                  <h3 class="timeline-role">B.Sc. in Technical Mathematics</h3>
-                  <p class="timeline-company">Vienna University of Technology</p>
-                </div>
-                <div class="timeline-meta">
-                  <span class="timeline-location">Vienna</span>
-                  <span class="timeline-period">10/2010 &ndash; 06/2014</span>
-                </div>
-              </div>
-            </div>
-          </li>
-
-        </ol>
-
-        <div class="edu-extras">
-
-          <div class="edu-extra-block">
-            <h3 class="edu-extra-heading">Languages</h3>
-            <dl class="language-list">
-              <div class="language-item">
-                <dt>German</dt>
-                <dd>Native</dd>
-              </div>
-              <div class="language-item">
-                <dt>English</dt>
-                <dd>Fluent</dd>
-              </div>
-              <div class="language-item">
-                <dt>Hebrew</dt>
-                <dd>Proficient</dd>
-              </div>
-            </dl>
-          </div>
-
-          <div class="edu-extra-block">
-            <h3 class="edu-extra-heading">Interests</h3>
-            <ul class="tag-list" aria-label="Personal interests">
-              <li class="tag">Non-fiction books</li>
-              <li class="tag">Piano</li>
-              <li class="tag">Yoga</li>
-            </ul>
-          </div>
-
+      <div class="exp-item">
+        <div>
+          <div class="exp-period">06/2019 — 06/2021</div>
+          <div class="exp-company">4flow</div>
+          <div class="exp-location">Berlin</div>
+        </div>
+        <div>
+          <div class="exp-title">Data Scientist</div>
+          <ul class="exp-bullets">
+            <li>Cut manual document processing workload by 40% by shipping an object detection model that automatically extracted and evaluated structured information from incoming documents.</li>
+            <li>Reduced email triage effort by 25% by building an NLP classifier that routed support emails to the correct problem category without human review.</li>
+            <li>Eliminated ticket back-filling overhead by training an RNN to retrieve, classify, and auto-populate exception tickets — turning a manual multi-step process into a zero-touch workflow.</li>
+          </ul>
         </div>
       </div>
-    </section>
 
-    <!-- ===== PANEL: CONTACT ===== -->
-    <section
-      role="tabpanel"
-      id="panel-contact"
-      aria-labelledby="tab-contact"
-      class="tabpanel"
-      hidden
-    >
-      <div class="panel-inner panel-inner--contact">
-        <h2 class="panel-heading">Contact</h2>
-        <p class="contact-intro">Feel free to reach out through any of the channels below.</p>
-
-        <ul class="contact-list">
-
-          <li class="contact-item">
-            <a href="mailto:kevinklein.dev@proton.me" class="contact-link">
-              <!-- Envelope icon -->
-              <svg aria-hidden="true" focusable="false" class="contact-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="4" width="20" height="16" rx="2"/>
-                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
-              </svg>
-              <span class="contact-label">kevinklein.dev@proton.me</span>
-            </a>
-          </li>
-
-          <li class="contact-item">
-            <a href="https://linkedin.com/in/kevinklein93" class="contact-link" target="_blank" rel="noopener noreferrer">
-              <!-- LinkedIn icon -->
-              <svg aria-hidden="true" focusable="false" class="contact-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-                <rect x="2" y="9" width="4" height="12"/>
-                <circle cx="4" cy="4" r="2"/>
-              </svg>
-              <span class="contact-label">linkedin.com/in/kevinklein93</span>
-              <svg aria-label="opens in new tab" class="external-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                <polyline points="15 3 21 3 21 9"/>
-                <line x1="10" y1="14" x2="21" y2="3"/>
-              </svg>
-            </a>
-          </li>
-
-          <li class="contact-item">
-            <a href="https://github.com/kevkle" class="contact-link" target="_blank" rel="noopener noreferrer">
-              <!-- GitHub icon -->
-              <svg aria-hidden="true" focusable="false" class="contact-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/>
-              </svg>
-              <span class="contact-label">github.com/kevkle</span>
-              <svg aria-label="opens in new tab" class="external-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                <polyline points="15 3 21 3 21 9"/>
-                <line x1="10" y1="14" x2="21" y2="3"/>
-              </svg>
-            </a>
-          </li>
-
-          <li class="contact-item">
-            <span class="contact-link contact-link--static">
-              <!-- Map pin icon -->
-              <svg aria-hidden="true" focusable="false" class="contact-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/>
-                <circle cx="12" cy="10" r="3"/>
-              </svg>
-              <span class="contact-label">Tel Aviv, Israel</span>
-            </span>
-          </li>
-
-        </ul>
+      <div class="exp-item">
+        <div>
+          <div class="exp-period">10/2016 — 06/2018</div>
+          <div class="exp-company">BDO Switzerland</div>
+          <div class="exp-location">Zurich</div>
+        </div>
+        <div>
+          <div class="exp-title">Risk Analytics Consultant</div>
+          <ul class="exp-bullets">
+            <li>Halved loan selection time by engineering an R-based algorithm for portfolio screening — enabling BDO's team to cover twice the loan volume within the same timeline during the ECB asset quality review.</li>
+            <li>Delivered BDO's first international advisory mandate, leading quantitative risk analysis for a major European bank's ECB-supervised asset quality review.</li>
+          </ul>
+        </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-  </main>
+  <!-- SKILLS -->
+  <section role="tabpanel" id="panel-skills" aria-labelledby="tab-skills" class="panel" hidden style="position:relative">
+    <div class="panel-index">03</div>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-cat">LLM &amp; Agentic AI</div>
+        <div class="skill-tags">
+          <span class="skill-tag">LLM Systems</span><span class="skill-tag">Agentic AI</span><span class="skill-tag">MCP</span><span class="skill-tag">RAG Pipelines</span><span class="skill-tag">DSPy</span><span class="skill-tag">LangChain</span><span class="skill-tag">OpenWebUI</span><span class="skill-tag">vLLM</span><span class="skill-tag">Hugging Face</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-cat">Machine Learning</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Python</span><span class="skill-tag">PyTorch</span><span class="skill-tag">Scikit-learn</span><span class="skill-tag">Ray</span><span class="skill-tag">Time-series</span><span class="skill-tag">Imbalanced Classification</span><span class="skill-tag">Deep Learning</span><span class="skill-tag">NLP</span><span class="skill-tag">Object Detection</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-cat">MLOps &amp; Infrastructure</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Kubernetes</span><span class="skill-tag">Docker</span><span class="skill-tag">GCP</span><span class="skill-tag">Terraform</span><span class="skill-tag">Argo CD</span><span class="skill-tag">MLflow</span><span class="skill-tag">DVC</span><span class="skill-tag">CI/CD</span><span class="skill-tag">Grafana</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-cat">Data &amp; Storage</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Vector DB</span><span class="skill-tag">Streaming</span><span class="skill-tag">Multi-GPU Clusters</span><span class="skill-tag">Distributed Training</span><span class="skill-tag">Parallelization</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-cat">Engineering</div>
+        <div class="skill-tags">
+          <span class="skill-tag">System Design</span><span class="skill-tag">Linux</span><span class="skill-tag">Git</span><span class="skill-tag">Claude Code</span><span class="skill-tag">Docker Compose</span><span class="skill-tag">Technical Documentation</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-cat">Team &amp; Process</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Agile / Sprints</span><span class="skill-tag">Cross-functional Collaboration</span><span class="skill-tag">R</span><span class="skill-tag">Quantitative Finance</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <!-- ===================== FOOTER ===================== -->
-  <footer class="site-footer">
-    <p class="footer-text">
-      <span aria-label="copyright">&copy;</span> <span id="footer-year"></span> Kevin Klein. All rights reserved.
-    </p>
-  </footer>
+  <!-- EDUCATION -->
+  <section role="tabpanel" id="panel-education" aria-labelledby="tab-education" class="panel" hidden style="position:relative">
+    <div class="panel-index">04</div>
+    <div class="edu-grid">
+      <div class="edu-item">
+        <div>
+          <div class="edu-period">09/2014 — 06/2016</div>
+          <div class="edu-school">ETH Zürich</div>
+          <div class="edu-location">Zürich, Switzerland</div>
+        </div>
+        <div>
+          <div class="edu-degree">M.Sc. in Quantitative Finance</div>
+          <div class="edu-detail">Thesis: <em>Order book models and price formation</em><br>Deep focus on stochastic calculus, statistical modeling, financial mathematics, and computational methods.</div>
+          <div class="edu-badge">Magna Cum Laude</div>
+        </div>
+      </div>
+      <div class="edu-item">
+        <div>
+          <div class="edu-period">10/2010 — 06/2014</div>
+          <div class="edu-school">Vienna University of Technology</div>
+          <div class="edu-location">Vienna, Austria</div>
+        </div>
+        <div>
+          <div class="edu-degree">B.Sc. in Technical Mathematics</div>
+          <div class="edu-detail">Rigorous training in mathematical foundations: analysis, linear algebra, numerical methods, probability theory, and applied mathematics.</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <!-- Scripts -->
-  <script src="js/main.js"></script>
+  <!-- CONTACT -->
+  <section role="tabpanel" id="panel-contact" aria-labelledby="tab-contact" class="panel" hidden style="position:relative">
+    <div class="panel-index">05</div>
+    <div class="contact-wrap">
+      <div>
+        <p class="contact-headline">Let's build something exceptional.</p>
+        <p class="contact-sub">Open to senior AI engineering roles, consulting engagements, and technical advisory work — especially in healthcare AI, LLM infrastructure, and agentic systems. Based in Tel Aviv, available for remote or hybrid arrangements.</p>
+        <div class="contact-links">
+          <a class="contact-link" href="mailto:kevinklein.dev@proton.me"><span class="contact-link-icon">Email</span><span class="contact-link-val">kevinklein.dev@proton.me</span></a>
+          <a class="contact-link" href="https://www.linkedin.com/in/kevinklein93" target="_blank" rel="noopener noreferrer"><span class="contact-link-icon">LinkedIn</span><span class="contact-link-val">linkedin.com/in/kevinklein93</span></a>
+          <a class="contact-link" href="https://github.com/kevkle" target="_blank" rel="noopener noreferrer"><span class="contact-link-icon">GitHub</span><span class="contact-link-val">github.com/kevkle</span></a>
+          <a class="contact-link" href="#" onclick="return false" style="cursor:default;"><span class="contact-link-icon">Location</span><span class="contact-link-val">Tel Aviv, Israel</span></a>
+        </div>
+      </div>
+      <div>
+        <div class="section-label">Languages</div>
+        <div class="lang-grid">
+          <div class="lang-item"><span class="lang-name">German</span><span class="lang-level">Native</span></div>
+          <div class="lang-item"><span class="lang-name">English</span><span class="lang-level">Fluent</span></div>
+          <div class="lang-item"><span class="lang-name">Hebrew</span><span class="lang-level">Proficient</span></div>
+        </div>
+        <div class="section-label" style="margin-top:40px">Interests</div>
+        <div class="pill-row">
+          <span class="pill">Non-fiction Books</span>
+          <span class="pill">Piano</span>
+          <span class="pill">Yoga</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer class="site-footer">
+  <p class="footer-text">&copy; <span id="footer-year"></span> Kevin Klein</p>
+</footer>
+
+<script src="js/main.js"></script>
 </body>
 </html>

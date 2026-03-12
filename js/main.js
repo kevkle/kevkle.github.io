@@ -6,7 +6,7 @@
  *   - ARIA tab switching (roving tabindex)
  *   - Arrow-key / Home / End keyboard navigation
  *   - Hash-based deep-linking (#about, #experience, …)
- *   - Active-tab CSS class toggling
+ *   - Active-tab CSS via aria-selected attribute
  *   - Footer copyright year
  */
 
@@ -23,7 +23,6 @@
     tabs.forEach(function (t) {
       t.setAttribute('aria-selected', 'false');
       t.setAttribute('tabindex', '-1');
-      t.classList.remove('tab-btn--active');
     });
     panels.forEach(function (p) {
       p.setAttribute('hidden', '');
@@ -32,7 +31,6 @@
     // Activate chosen tab
     tab.setAttribute('aria-selected', 'true');
     tab.setAttribute('tabindex', '0');
-    tab.classList.add('tab-btn--active');
 
     var panelId = tab.getAttribute('aria-controls');
     var panel = document.getElementById(panelId);
