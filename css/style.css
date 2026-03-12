@@ -154,8 +154,9 @@ header {
 }
 
 /* TABS */
-.tabs-wrap {
+.tabs-bar {
   display: flex;
+  align-items: stretch;
   border-bottom: 1px solid var(--border);
   position: sticky;
   top: 0;
@@ -163,20 +164,16 @@ header {
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   z-index: 10;
+}
+
+.tabs-wrap {
+  display: flex;
   overflow-x: auto;
   scrollbar-width: none;
+  flex: 1;
+  min-width: 0;
 }
 .tabs-wrap::-webkit-scrollbar { display: none; }
-.tabs-wrap::after {
-  content: '';
-  position: sticky;
-  right: 0;
-  flex-shrink: 0;
-  width: 48px;
-  background: linear-gradient(90deg, transparent, rgba(10,10,15,0.95));
-  pointer-events: none;
-  margin-left: -48px;
-}
 
 .tab-btn {
   padding: 18px 28px;
