@@ -27,6 +27,7 @@ No new files created.
 ### Task 1: Add scroll-reveal and stagger CSS classes
 
 **Files:**
+
 - Modify: `css/style.css:90-101` (after `.sr-only`, before `.skip-link`)
 
 - [ ] **Step 1: Add `.reveal` and `.stagger` CSS rules**
@@ -74,6 +75,7 @@ git commit -m "feat: add scroll-reveal and stagger CSS animation classes"
 ### Task 2: Add hover enhancements CSS
 
 **Files:**
+
 - Modify: `css/style.css` — multiple sections
 
 **Note:** All line numbers reference the original `css/style.css` before any Chunk 1 modifications. Reference rules by their CSS selector text, not line numbers.
@@ -83,10 +85,13 @@ git commit -m "feat: add scroll-reveal and stagger CSS animation classes"
 At `css/style.css:450` (the `.proj-card:hover` rule), add `box-shadow`:
 
 Change:
+
 ```css
 .proj-card:hover { border-color: var(--accent); transform: translateY(-3px); }
 ```
+
 To:
+
 ```css
 .proj-card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0,229,160,0.08); }
 ```
@@ -94,15 +99,19 @@ To:
 - [ ] **Step 2: Add pill and exp-tag hover lift**
 
 After `.pill:hover` rule (line 332), add transform. Change:
+
 ```css
 .pill:hover { border-color: var(--accent); color: var(--accent); background: rgba(0,229,160,0.04); }
 ```
+
 To:
+
 ```css
 .pill:hover { border-color: var(--accent); color: var(--accent); background: rgba(0,229,160,0.04); transform: translateY(-2px); }
 ```
 
 Add `transition: all 0.2s;` inside the existing `.exp-tag` block (the one with `font-family: 'DM Mono'`), at the end before the closing brace. Then add a new hover rule after it:
+
 ```css
 .exp-tag:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
 ```
@@ -110,6 +119,7 @@ Add `transition: all 0.2s;` inside the existing `.exp-tag` block (the one with `
 - [ ] **Step 3: Add contact-link-icon hover slide**
 
 After `.contact-link:hover` (line 550), add:
+
 ```css
 .contact-link-icon { transition: transform 0.25s; }
 .contact-link:hover .contact-link-icon { transform: translateX(4px); }
@@ -118,6 +128,7 @@ After `.contact-link:hover` (line 550), add:
 - [ ] **Step 4: Add impact-row hover border-left**
 
 Change the `.impact-row` rule (line 374) from:
+
 ```css
 .impact-row {
   display: flex;
@@ -128,7 +139,9 @@ Change the `.impact-row` rule (line 374) from:
   transition: background 0.2s;
 }
 ```
+
 To:
+
 ```css
 .impact-row {
   display: flex;
@@ -159,15 +172,19 @@ git commit -m "feat: add hover enhancements for cards, pills, tags, and impact r
 ### Task 3: Add cursor glow CSS
 
 **Files:**
+
 - Modify: `css/style.css` — `.contact-link` and new `::before` rules
 
 - [ ] **Step 1: Add `position: relative; overflow: hidden` to `.contact-link`**
 
 Change `.contact-link` (line 549) from:
+
 ```css
 .contact-link { display: flex; align-items: center; gap: 16px; padding: 16px 20px; background: var(--card); border: 1px solid var(--border); text-decoration: none; color: var(--text); transition: all 0.25s; }
 ```
+
 To:
+
 ```css
 .contact-link { display: flex; align-items: center; gap: 16px; padding: 16px 20px; background: var(--card); border: 1px solid var(--border); text-decoration: none; color: var(--text); transition: all 0.25s; position: relative; overflow: hidden; }
 ```
@@ -208,11 +225,13 @@ git commit -m "feat: add cursor glow CSS for project cards and contact links"
 ### Task 4: Add tab sliding indicator CSS
 
 **Files:**
+
 - Modify: `css/style.css` — `.tabs-wrap` and `.tab-btn[aria-selected="true"]`
 
 - [ ] **Step 1: Add `position: relative` to `.tabs-wrap` and create `::after` indicator**
 
 Change `.tabs-wrap` (line 258) from:
+
 ```css
 .tabs-wrap {
   display: flex;
@@ -222,7 +241,9 @@ Change `.tabs-wrap` (line 258) from:
   min-width: 0;
 }
 ```
+
 To:
+
 ```css
 .tabs-wrap {
   display: flex;
@@ -249,10 +270,13 @@ To:
 - [ ] **Step 2: Hide the per-tab border-bottom**
 
 Change `.tab-btn[aria-selected="true"]` (line 283) from:
+
 ```css
 .tab-btn[aria-selected="true"] { color: var(--accent); border-bottom-color: var(--accent); }
 ```
+
 To:
+
 ```css
 .tab-btn[aria-selected="true"] { color: var(--accent); border-bottom-color: transparent; }
 ```
@@ -271,11 +295,13 @@ git commit -m "feat: add tab sliding indicator CSS with transition"
 ### Task 5: Add reduced-motion overrides
 
 **Files:**
+
 - Modify: `css/style.css` — the `@media (prefers-reduced-motion: reduce)` block (line 595)
 
 - [ ] **Step 1: Replace the existing reduced-motion block**
 
 Change (lines 595-602):
+
 ```css
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -286,7 +312,9 @@ Change (lines 595-602):
   html { scroll-behavior: auto; }
 }
 ```
+
 To:
+
 ```css
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -326,6 +354,7 @@ git commit -m "feat: add reduced-motion overrides for all animation features"
 ### Task 6: Add `.reveal` classes to index.html elements
 
 **Files:**
+
 - Modify: `index.html` — add `class="reveal"` to specified elements
 
 - [ ] **Step 1: Add `.reveal` to About panel elements**
@@ -363,15 +392,19 @@ git commit -m "feat: add .reveal classes to all scroll-animated elements"
 ### Task 7: Add `.stagger` and `--i` attributes for staggered entrances
 
 **Files:**
+
 - Modify: `index.html` — pill-row, exp-tags, contact-links
 
 - [ ] **Step 1: Add stagger to About pill-row**
 
 The `.pill-row` in About section (line 155). Change:
+
 ```html
 <div class="pill-row">
 ```
+
 To:
+
 ```html
 <div class="pill-row reveal stagger">
 ```
@@ -413,33 +446,43 @@ git commit -m "feat: add .stagger classes and --i delay indices to HTML"
 ### Task 8: Add `data-count` attributes to impact numbers
 
 **Files:**
+
 - Modify: `index.html` — impact-num spans
 
 - [ ] **Step 1: Add data-count to numeric impact numbers**
 
 Line 101 — change:
+
 ```html
 <span class="impact-num">8+</span>
 ```
+
 To:
+
 ```html
 <span class="impact-num" data-count="8" data-suffix="+">8+</span>
 ```
 
 Line 108 — change:
+
 ```html
 <span class="impact-num impact-num--white">6h</span>
 ```
+
 To:
+
 ```html
 <span class="impact-num impact-num--white" data-count="6" data-suffix="h">6h</span>
 ```
 
 Line 115 — change:
+
 ```html
 <span class="impact-num impact-num--white">40%</span>
 ```
+
 To:
+
 ```html
 <span class="impact-num impact-num--white" data-count="40" data-suffix="%">40%</span>
 ```
@@ -464,6 +507,7 @@ git commit -m "feat: add data-count and data-suffix attributes to impact numbers
 ### Task 9: Add IntersectionObserver for scroll-reveal
 
 **Files:**
+
 - Modify: `js/main.js` — inside the IIFE and `DOMContentLoaded` handler
 
 All line numbers below refer to the **original** `main.js` before any Task 9-12 modifications. Reference by surrounding code context, not line numbers.
@@ -528,6 +572,7 @@ git commit -m "feat: add IntersectionObserver for scroll-reveal animations"
 ### Task 10: Add tab sliding indicator JS
 
 **Files:**
+
 - Modify: `js/main.js` — inside `DOMContentLoaded`, after tab setup
 
 - [ ] **Step 1: Add `updateTabIndicator` function and calls**
@@ -547,26 +592,31 @@ Add helper function (inside the IIFE, before `DOMContentLoaded`):
 Then add `updateTabIndicator` calls in **all 5 places** that switch tabs:
 
 1. After `setActive(initial, tabEls, panelEls);` (initial tab setup), add:
+
 ```javascript
     updateTabIndicator(initial);
 ```
 
-2. Inside the tab click handler, after `focusPanel(tab);`, add:
+1. Inside the tab click handler, after `focusPanel(tab);`, add:
+
 ```javascript
         updateTabIndicator(tab);
 ```
 
-3. Inside `buildKeyHandler`, after `syncHash(next);`, add:
+1. Inside `buildKeyHandler`, after `syncHash(next);`, add:
+
 ```javascript
         updateTabIndicator(next);
 ```
 
-4. Inside the `.panel-nav-link[data-tab]` click handler, after `focusPanel(targetTab);`, add:
+1. Inside the `.panel-nav-link[data-tab]` click handler, after `focusPanel(targetTab);`, add:
+
 ```javascript
           updateTabIndicator(targetTab);
 ```
 
-5. Inside the `.proj-link[data-tab]` click handler, after `syncHash(targetTab);`, add:
+1. Inside the `.proj-link[data-tab]` click handler, after `syncHash(targetTab);`, add:
+
 ```javascript
           updateTabIndicator(targetTab);
 ```
@@ -585,6 +635,7 @@ git commit -m "feat: add tab sliding indicator JS positioning"
 ### Task 11: Implement count-up animation
 
 **Files:**
+
 - Modify: `js/main.js` — replace `countUp` stub
 
 - [ ] **Step 1: Replace the countUp stub with full implementation**
@@ -642,6 +693,7 @@ git commit -m "feat: implement count-up animation for impact numbers"
 ### Task 12: Add cursor glow JS
 
 **Files:**
+
 - Modify: `js/main.js` — inside `DOMContentLoaded`, after the observer setup
 
 - [ ] **Step 1: Add cursor glow event listeners**
@@ -696,6 +748,7 @@ git commit -m "feat: add cursor glow effect for project cards and contact links"
 - [ ] **Step 1: Test scroll reveal on all panels**
 
 Navigate to each tab. Scroll through content. Verify these elements fade in:
+
 - About: impact rows, paragraphs, currently-building box, pill-row (staggered)
 - Experience: exp-items, exp-tags (staggered)
 - Projects: proj-cards, exp-tags (staggered)
@@ -705,6 +758,7 @@ Navigate to each tab. Scroll through content. Verify these elements fade in:
 - [ ] **Step 2: Test hover effects**
 
 Verify:
+
 - Project cards: lift + shadow + green border + left bar + cursor glow
 - Pills: lift + color change
 - Exp-tags: lift + color change

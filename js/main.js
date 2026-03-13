@@ -21,14 +21,18 @@
   /** Callback invoked after a tab switch; set later by scroll-reveal init */
   var afterTabSwitch = null;
 
+  /** Cached references, set during init */
+  var allTabs = [];
+  var allPanels = [];
+
   /** @param {HTMLElement} tab */
-  function setActive(tab, tabs, panels) {
+  function setActive(tab) {
     // Deactivate all
-    tabs.forEach(function (t) {
+    allTabs.forEach(function (t) {
       t.setAttribute('aria-selected', 'false');
       t.setAttribute('tabindex', '-1');
     });
-    panels.forEach(function (p) {
+    allPanels.forEach(function (p) {
       p.setAttribute('hidden', '');
     });
 
@@ -47,27 +51,27 @@
     }
   }
 
-  /** Move focus to the active panel for screen reader users */
-  function focusPanel(tab) {
+  /** Full tab switch: activate, sync hash, focus panel, update indicator */
+  function activateTab(tab) {
+    setActive(tab);
+    syncHash(tab);
     var panelId = tab.getAttribute('aria-controls');
     var panel = document.getElementById(panelId);
     if (panel) {
       panel.focus();
     }
+    updateTabIndicator(tab);
   }
 
   // ----------------------------------------------------------------
   // Hash routing
   // ----------------------------------------------------------------
 
-  /**
-   * Return the tab matching the current URL hash, or null.
-   * @param {HTMLElement[]} tabs
-   */
-  function tabFromHash(tabs) {
+  /** Return the tab matching the current URL hash, or null. */
+  function tabFromHash() {
     var hash = window.location.hash.slice(1); // e.g. "experience"
     if (!hash) return null;
-    return tabs.find(function (t) { return t.id === 'tab-' + hash; }) || null;
+    return allTabs.find(function (t) { return t.id === 'tab-' + hash; }) || null;
   }
 
   /** Persist the active tab to the URL hash (no scroll jump). */
@@ -84,23 +88,23 @@
   // Keyboard navigation (WAI-ARIA Tabs pattern)
   // ----------------------------------------------------------------
 
-  function buildKeyHandler(tabs, panels) {
+  function buildKeyHandler() {
     return function (e) {
-      var idx = tabs.indexOf(e.currentTarget);
+      var idx = allTabs.indexOf(e.currentTarget);
       var next = null;
 
       switch (e.key) {
         case 'ArrowRight':
-          next = tabs[(idx + 1) % tabs.length];
+          next = allTabs[(idx + 1) % allTabs.length];
           break;
         case 'ArrowLeft':
-          next = tabs[(idx - 1 + tabs.length) % tabs.length];
+          next = allTabs[(idx - 1 + allTabs.length) % allTabs.length];
           break;
         case 'Home':
-          next = tabs[0];
+          next = allTabs[0];
           break;
         case 'End':
-          next = tabs[tabs.length - 1];
+          next = allTabs[allTabs.length - 1];
           break;
         default:
           return; // let other keys propagate normally
@@ -109,9 +113,7 @@
       if (next) {
         e.preventDefault();
         next.focus();
-        setActive(next, tabs, panels);
-        syncHash(next);
-        updateTabIndicator(next);
+        activateTab(next);
       }
     };
   }
@@ -184,29 +186,26 @@
   // ----------------------------------------------------------------
 
   document.addEventListener('DOMContentLoaded', function () {
-    var tabEls   = Array.prototype.slice.call(document.querySelectorAll('[role="tab"]'));
-    var panelEls = Array.prototype.slice.call(document.querySelectorAll('[role="tabpanel"]'));
+    allTabs   = Array.from(document.querySelectorAll('[role="tab"]'));
+    allPanels = Array.from(document.querySelectorAll('[role="tabpanel"]'));
 
-    if (!tabEls.length) return;
+    if (!allTabs.length) return;
 
-    var keyHandler = buildKeyHandler(tabEls, panelEls);
+    var keyHandler = buildKeyHandler();
 
-    tabEls.forEach(function (tab) {
+    allTabs.forEach(function (tab) {
       tab.addEventListener('click', function () {
-        setActive(tab, tabEls, panelEls);
-        syncHash(tab);
-        focusPanel(tab);
-        updateTabIndicator(tab);
+        activateTab(tab);
       });
       tab.addEventListener('keydown', keyHandler);
     });
 
     // Activate from hash or fall back to "About"
-    var initial = tabFromHash(tabEls)
-      || tabEls.find(function (t) { return t.id === 'tab-about'; })
-      || tabEls[0];
+    var initial = tabFromHash()
+      || allTabs.find(function (t) { return t.id === 'tab-about'; })
+      || allTabs[0];
 
-    setActive(initial, tabEls, panelEls);
+    setActive(initial);
     updateTabIndicator(initial);
     // Don't write a hash on first load if there isn't one already
     if (window.location.hash) {
@@ -214,22 +213,19 @@
     }
 
     // In-panel navigation links (e.g. "Full work history in Experience →")
-    var navLinks = Array.prototype.slice.call(document.querySelectorAll('.panel-nav-link[data-tab]'));
+    var navLinks = Array.from(document.querySelectorAll('.panel-nav-link[data-tab]'));
     navLinks.forEach(function (link) {
       link.addEventListener('click', function (e) {
         e.preventDefault();
         var targetTab = document.getElementById(link.getAttribute('data-tab'));
         if (targetTab) {
-          setActive(targetTab, tabEls, panelEls);
-          syncHash(targetTab);
-          focusPanel(targetTab);
-          updateTabIndicator(targetTab);
+          activateTab(targetTab);
         }
       });
     });
 
     // Project cross-links from Experience bullets
-    var projLinks = Array.prototype.slice.call(
+    var projLinks = Array.from(
       document.querySelectorAll('.proj-link[data-tab]')
     );
     projLinks.forEach(function (link) {
@@ -237,10 +233,7 @@
         e.preventDefault();
         var targetTab = document.getElementById(link.getAttribute('data-tab'));
         if (targetTab) {
-          setActive(targetTab, tabEls, panelEls);
-          syncHash(targetTab);
-          updateTabIndicator(targetTab);
-          targetTab.focus();
+          activateTab(targetTab);
           var projectId = link.getAttribute('data-project');
           if (projectId) {
             requestAnimationFrame(function () {
@@ -288,10 +281,10 @@
 
     /** Observe reveal/count-up elements; re-observe on tab switch for hidden panels */
     function observeRevealElements() {
-      var revealEls = Array.prototype.slice.call(document.querySelectorAll('.reveal:not(.revealed)'));
+      var revealEls = Array.from(document.querySelectorAll('.reveal:not(.revealed)'));
       revealEls.forEach(function (el) { revealObserver.observe(el); });
 
-      var countEls = Array.prototype.slice.call(document.querySelectorAll('[data-count]'));
+      var countEls = Array.from(document.querySelectorAll('[data-count]'));
       countEls.forEach(function (el) {
         if (!el._countedUp) revealObserver.observe(el);
       });
@@ -307,7 +300,7 @@
     // ----------------------------------------------------------------
 
     if (!reducedMotionQuery.matches) {
-      var glowTargets = Array.prototype.slice.call(
+      var glowTargets = Array.from(
         document.querySelectorAll('.proj-card, .contact-link')
       );
 
