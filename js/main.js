@@ -11,9 +11,16 @@
  *   - Footer copyright year
  */
 
-'use strict';
-
 (function () {
+  'use strict';
+
+  // ----------------------------------------------------------------
+  // Constants
+  // ----------------------------------------------------------------
+
+  var HIGHLIGHT_DURATION_MS = 1500;
+  var COUNT_UP_DURATION_MS = 1200;
+
   // ----------------------------------------------------------------
   // Helpers
   // ----------------------------------------------------------------
@@ -63,6 +70,23 @@
     updateTabIndicator(tab);
   }
 
+  /** Navigate to a tab by element id, then optionally scroll to and highlight a card */
+  function navigateToTab(tabId, projectId) {
+    var targetTab = document.getElementById(tabId);
+    if (!targetTab) return;
+    activateTab(targetTab);
+    if (projectId) {
+      requestAnimationFrame(function () {
+        var card = document.getElementById(projectId);
+        if (card) {
+          card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          card.style.borderColor = 'var(--accent)';
+          setTimeout(function () { card.style.borderColor = ''; }, HIGHLIGHT_DURATION_MS);
+        }
+      });
+    }
+  }
+
   // ----------------------------------------------------------------
   // Hash routing
   // ----------------------------------------------------------------
@@ -88,34 +112,32 @@
   // Keyboard navigation (WAI-ARIA Tabs pattern)
   // ----------------------------------------------------------------
 
-  function buildKeyHandler() {
-    return function (e) {
-      var idx = allTabs.indexOf(e.currentTarget);
-      var next = null;
+  function handleTabKey(e) {
+    var idx = allTabs.indexOf(e.currentTarget);
+    var next = null;
 
-      switch (e.key) {
-        case 'ArrowRight':
-          next = allTabs[(idx + 1) % allTabs.length];
-          break;
-        case 'ArrowLeft':
-          next = allTabs[(idx - 1 + allTabs.length) % allTabs.length];
-          break;
-        case 'Home':
-          next = allTabs[0];
-          break;
-        case 'End':
-          next = allTabs[allTabs.length - 1];
-          break;
-        default:
-          return; // let other keys propagate normally
-      }
+    switch (e.key) {
+      case 'ArrowRight':
+        next = allTabs[(idx + 1) % allTabs.length];
+        break;
+      case 'ArrowLeft':
+        next = allTabs[(idx - 1 + allTabs.length) % allTabs.length];
+        break;
+      case 'Home':
+        next = allTabs[0];
+        break;
+      case 'End':
+        next = allTabs[allTabs.length - 1];
+        break;
+      default:
+        return; // let other keys propagate normally
+    }
 
-      if (next) {
-        e.preventDefault();
-        next.focus();
-        activateTab(next);
-      }
-    };
+    if (next) {
+      e.preventDefault();
+      next.focus();
+      activateTab(next);
+    }
   }
 
   // ----------------------------------------------------------------
@@ -135,14 +157,13 @@
       return;
     }
 
-    var duration = 1200; // ms
     var start = null;
 
     el.textContent = '0' + suffix;
 
     function step(timestamp) {
       if (!start) start = timestamp;
-      var progress = Math.min((timestamp - start) / duration, 1);
+      var progress = Math.min((timestamp - start) / COUNT_UP_DURATION_MS, 1);
       // Ease-out: 1 - (1 - p)^3
       var eased = 1 - Math.pow(1 - progress, 3);
       var current = Math.round(eased * target);
@@ -191,13 +212,11 @@
 
     if (!allTabs.length) return;
 
-    var keyHandler = buildKeyHandler();
-
     allTabs.forEach(function (tab) {
       tab.addEventListener('click', function () {
         activateTab(tab);
       });
-      tab.addEventListener('keydown', keyHandler);
+      tab.addEventListener('keydown', handleTabKey);
     });
 
     // Activate from hash or fall back to "About"
@@ -212,40 +231,18 @@
       syncHash(initial);
     }
 
-    // In-panel navigation links (e.g. "Full work history in Experience →")
-    var navLinks = Array.from(document.querySelectorAll('.panel-nav-link[data-tab]'));
-    navLinks.forEach(function (link) {
+    // In-panel navigation links and project cross-links
+    document.querySelectorAll('.panel-nav-link[data-tab]').forEach(function (link) {
       link.addEventListener('click', function (e) {
         e.preventDefault();
-        var targetTab = document.getElementById(link.getAttribute('data-tab'));
-        if (targetTab) {
-          activateTab(targetTab);
-        }
+        navigateToTab(link.getAttribute('data-tab'));
       });
     });
 
-    // Project cross-links from Experience bullets
-    var projLinks = Array.from(
-      document.querySelectorAll('.proj-link[data-tab]')
-    );
-    projLinks.forEach(function (link) {
+    document.querySelectorAll('.proj-link[data-tab]').forEach(function (link) {
       link.addEventListener('click', function (e) {
         e.preventDefault();
-        var targetTab = document.getElementById(link.getAttribute('data-tab'));
-        if (targetTab) {
-          activateTab(targetTab);
-          var projectId = link.getAttribute('data-project');
-          if (projectId) {
-            requestAnimationFrame(function () {
-              var card = document.getElementById(projectId);
-              if (card) {
-                card.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                card.style.borderColor = 'var(--accent)';
-                setTimeout(function () { card.style.borderColor = ''; }, 1500);
-              }
-            });
-          }
-        }
+        navigateToTab(link.getAttribute('data-tab'), link.getAttribute('data-project'));
       });
     });
 
@@ -281,11 +278,10 @@
 
     /** Observe reveal/count-up elements; re-observe on tab switch for hidden panels */
     function observeRevealElements() {
-      var revealEls = Array.from(document.querySelectorAll('.reveal:not(.revealed)'));
-      revealEls.forEach(function (el) { revealObserver.observe(el); });
-
-      var countEls = Array.from(document.querySelectorAll('[data-count]'));
-      countEls.forEach(function (el) {
+      document.querySelectorAll('.reveal:not(.revealed)').forEach(function (el) {
+        revealObserver.observe(el);
+      });
+      document.querySelectorAll('[data-count]').forEach(function (el) {
         if (!el._countedUp) revealObserver.observe(el);
       });
     }
@@ -300,11 +296,7 @@
     // ----------------------------------------------------------------
 
     if (!reducedMotionQuery.matches) {
-      var glowTargets = Array.from(
-        document.querySelectorAll('.proj-card, .contact-link')
-      );
-
-      glowTargets.forEach(function (el) {
+      document.querySelectorAll('.proj-card, .contact-link').forEach(function (el) {
         var pending = false;
         el.addEventListener('mousemove', function (e) {
           if (pending) return;
