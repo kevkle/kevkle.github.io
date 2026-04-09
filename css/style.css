@@ -362,6 +362,8 @@ header {
   transition: all 0.2s;
 }
 .pill:hover { border-color: var(--accent); color: var(--accent); background: rgba(var(--accent-rgb),0.04); transform: translateY(-2px); }
+.skill-groups { display: flex; flex-direction: column; gap: 16px; margin-top: 0; }
+.skill-group-label { display: block; font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
 
 .currently-building {
   margin-top: 32px;

@@ -71,7 +71,7 @@
       <div class="header-contact">
         <a href="mailto:kevinklein.dev@proton.me">kevinklein.dev@proton.me</a><br>
         <!-- CV path also referenced in #panel-connect contact-links; update both if filename changes -->
-        <a href="https://www.linkedin.com/in/kevinklein93" target="_blank" rel="noopener noreferrer">linkedin.com/in/kevinklein93</a> <span aria-hidden="true">&middot;</span> <a href="assets/Kevin_Klein_Senior_GenAI_Engineer.pdf" target="_blank" rel="noopener noreferrer" class="cv-btn">Download CV <span aria-hidden="true">&darr;</span></a>
+        <a href="https://www.linkedin.com/in/kevinklein93" target="_blank" rel="noopener noreferrer">linkedin.com/in/kevinklein93</a> <span aria-hidden="true">&middot;</span> <a href="assets/Kevin_Klein_ML_Engineer.pdf" target="_blank" rel="noopener noreferrer" class="cv-btn">Download CV <span aria-hidden="true">&darr;</span></a>
       </div>
     </div>
     <div class="header-photo">
@@ -109,7 +109,7 @@
           <span class="impact-num impact-num--white" data-count="6" data-suffix="h">6h</span>
           <div class="impact-text">
             <span class="impact-title">Earlier post-cardiac surgery risk prediction</span>
-            <span class="impact-sub">Complication forecasting deployed in clinical production</span>
+            <span class="impact-sub">Transformer on 20K-patient cohort &middot; recall &gt;80%</span>
           </div>
         </div>
         <div class="impact-row reveal">
@@ -123,23 +123,23 @@
           <span class="impact-num impact-num--prod">PROD</span>
           <div class="impact-text">
             <span class="impact-title">Agentic AI system in clinical use</span>
-            <span class="impact-sub">Trusted in regulated hospital environments</span>
+            <span class="impact-sub">50+ clinicians &middot; 5 months zero-to-prod</span>
           </div>
         </div>
         <div class="impact-row reveal">
           <span class="impact-num impact-num--eth">ETH<br>Zürich</span>
           <div class="impact-text">
             <span class="impact-title">Magna Cum Laude</span>
-            <span class="impact-sub">M.Sc. Quantitative Finance <span aria-hidden="true">&middot;</span> first-principles engineering</span>
+            <span class="impact-sub">M.Sc. Applied Mathematics <span aria-hidden="true">&middot;</span> first-principles engineering</span>
           </div>
         </div>
       </div>
       <div>
         <p class="about-body reveal">
-          7+ years building production agentic AI systems in high-stakes environments. Designed and shipped a clinical agentic system with MCP tool orchestration, custom RAG, and low-latency LLM inference &mdash; trusted by doctors in regulated hospital settings.
+          7+ years building production ML and LLM systems in high-stakes environments. Designed and deployed a clinical AI platform &mdash; RAG over a 500K-word knowledge base, tool-calling agents over live patient data (FHIR, labs, vitals), multi-model serving &mdash; from zero to hospital deployment in 5 months, used daily by 50+ clinicians in regulated settings.
         </p>
         <p class="about-body reveal">
-          Deep hands-on experience across the full ML lifecycle. Built deep learning models on imbalanced clinical time-series, parallelised multi-GPU training with Ray, and established reproducible experiment pipelines with MLflow and DVC.
+          Deep hands-on ML experience across the full lifecycle. Owned a transformer predicting postoperative cardiac complications on a 20,000-patient cohort (recall &gt;80%, precision 60&ndash;70%) &mdash; parallelising distributed training across an 8-GPU cluster via Ray for a ~10&times; wallclock speedup, with 50+ Bayesian hyperparameter trials completed within 24 hours.
         </p>
         <p class="about-body reveal">
           Strong mathematical foundations and deep analytical skills from ETH Z&uuml;rich. This first-principles thinking shapes how I approach system design &mdash; from model architecture decisions to production infrastructure.
@@ -153,26 +153,56 @@
           Production agentic AI for clinical decision support &mdash; conversational systems that give doctors real-time, auditable access to patient data. Built with MCP tool orchestration, custom RAG with context prioritisation, and vLLM inference on Kubernetes with auto-scaling for low-latency serving. Deployed in regulated hospital environments with full compliance auditability.
         </div>
       </div>
-      <div class="pill-row reveal stagger">
-        <span class="pill" style="--i:0">LLM Systems</span>
-        <span class="pill" style="--i:1">Agentic AI / MCP</span>
-        <span class="pill" style="--i:2">RAG Pipelines</span>
-        <span class="pill" style="--i:3">Healthcare AI</span>
-        <span class="pill" style="--i:4">PyTorch</span>
-        <span class="pill" style="--i:5">Deep Learning</span>
-        <span class="pill" style="--i:6">Ray (Multi-GPU)</span>
-        <span class="pill" style="--i:7">vLLM</span>
-        <span class="pill" style="--i:8">Kubernetes</span>
-        <span class="pill" style="--i:9">Docker</span>
-        <span class="pill" style="--i:10">Terraform</span>
-        <span class="pill" style="--i:11">MLflow / DVC</span>
-        <span class="pill" style="--i:12">Argo CD</span>
-        <span class="pill" style="--i:13">Grafana</span>
-        <span class="pill" style="--i:14">CI/CD</span>
-        <span class="pill" style="--i:15">Linux</span>
-        <span class="pill" style="--i:16">Git</span>
-        <span class="pill" style="--i:17">System Design</span>
-      </div>
+      <div class="skill-groups reveal">
+  <div class="skill-group">
+    <span class="skill-group-label">LLM Systems</span>
+    <div class="pill-row">
+      <span class="pill" style="--i:0">vLLM</span>
+      <span class="pill" style="--i:1">RAG Pipelines</span>
+      <span class="pill" style="--i:2">Agentic AI</span>
+      <span class="pill" style="--i:3">Multi-agent</span>
+      <span class="pill" style="--i:4">LangGraph</span>
+      <span class="pill" style="--i:5">MCP</span>
+      <span class="pill" style="--i:6">Qdrant</span>
+      <span class="pill" style="--i:7">KV-cache</span>
+    </div>
+  </div>
+  <div class="skill-group">
+    <span class="skill-group-label">Core ML</span>
+    <div class="pill-row">
+      <span class="pill" style="--i:0">PyTorch</span>
+      <span class="pill" style="--i:1">Transformers</span>
+      <span class="pill" style="--i:2">HuggingFace</span>
+      <span class="pill" style="--i:3">Ray</span>
+      <span class="pill" style="--i:4">Time-series</span>
+      <span class="pill" style="--i:5">Imbalanced Classification</span>
+      <span class="pill" style="--i:6">Scikit-learn</span>
+    </div>
+  </div>
+  <div class="skill-group">
+    <span class="skill-group-label">Evals &amp; Ops</span>
+    <div class="pill-row">
+      <span class="pill" style="--i:0">LLM Evals</span>
+      <span class="pill" style="--i:1">MLflow</span>
+      <span class="pill" style="--i:2">DVC</span>
+      <span class="pill" style="--i:3">Observability</span>
+      <span class="pill" style="--i:4">Guardrails</span>
+      <span class="pill" style="--i:5">Human-in-the-loop</span>
+    </div>
+  </div>
+  <div class="skill-group">
+    <span class="skill-group-label">Infra</span>
+    <div class="pill-row">
+      <span class="pill" style="--i:0">Kubernetes</span>
+      <span class="pill" style="--i:1">Docker</span>
+      <span class="pill" style="--i:2">GCP</span>
+      <span class="pill" style="--i:3">Terraform</span>
+      <span class="pill" style="--i:4">Argo CD</span>
+      <span class="pill" style="--i:5">CI/CD</span>
+      <span class="pill" style="--i:6">Linux</span>
+    </div>
+  </div>
+</div>
     </div>
   </section>
 
@@ -190,11 +220,11 @@
         <div>
           <div class="exp-title">Machine Learning Engineer</div>
           <ul class="exp-bullets">
-            <li>Architected and shipped a production agentic AI system to clinical deployment &mdash; trusted in regulated hospital environments with full compliance auditability. <a class="proj-link" href="#projects" data-tab="tab-projects" data-project="proj-clinical-agent">case study <span aria-hidden="true">&rarr;</span></a></li>
-            <li>Achieved low-latency LLM serving for real-time clinical queries via GPU-optimised Kubernetes deployment with auto-scaling. <a class="proj-link" href="#projects" data-tab="tab-projects" data-project="proj-clinical-agent">case study <span aria-hidden="true">&rarr;</span></a></li>
-            <li>Delivered 6 hours earlier detection of postoperative cardiac complications &mdash; directly enabling earlier intervention and improved patient outcomes. <a class="proj-link" href="#projects" data-tab="tab-projects" data-project="proj-complication-prediction">case study <span aria-hidden="true">&rarr;</span></a></li>
-            <li>Cut model training time from days to hours via parallelised multi-GPU training with Ray, enabling rapid experimentation across architectures. <a class="proj-link" href="#projects" data-tab="tab-projects" data-project="proj-complication-prediction">case study <span aria-hidden="true">&rarr;</span></a></li>
-            <li>Established end-to-end ML experiment tracking and dataset versioning (MLflow, DVC) &mdash; enabling reproducible, auditable experiments in a compliance-sensitive research environment.</li>
+            <li>Built and deployed a production clinical AI platform &mdash; RAG over a 500K-word clinical knowledge base, tool-calling agents over live patient data (FHIR, labs, vitals), multi-model serving &mdash; zero to production in 5 months, used daily by 50+ clinicians in regulated hospital environments. <a class="proj-link" href="#projects" data-tab="tab-projects" data-project="proj-clinical-agent">case study <span aria-hidden="true">&rarr;</span></a></li>
+            <li>Achieved &lt;300ms TTFT and 3,000+ tok/s across a multi-model stack (GPT-OSS 120B &middot; Kimi 2.5 &middot; Qwen Coder) on 8&times;H200 GPUs via vLLM &mdash; KV-cache tuning and continuous batching to sustain throughput under concurrent clinical load. <a class="proj-link" href="#projects" data-tab="tab-projects" data-project="proj-clinical-agent">case study <span aria-hidden="true">&rarr;</span></a></li>
+            <li>Designed eval framework covering tool-call accuracy, retrieval relevance, and clinical safety &mdash; with human-in-the-loop review for high-risk decisions and distributed tracing for multi-agent debugging. <a class="proj-link" href="#projects" data-tab="tab-projects" data-project="proj-clinical-agent">case study <span aria-hidden="true">&rarr;</span></a></li>
+            <li>Owned the full ML lifecycle for a transformer predicting postoperative cardiac complications on a 20,000-patient cohort (recall &gt;80%, precision 60&ndash;70%) &mdash; directly enabling intervention up to 6h earlier. <a class="proj-link" href="#projects" data-tab="tab-projects" data-project="proj-complication-prediction">case study <span aria-hidden="true">&rarr;</span></a></li>
+            <li>Parallelised distributed training across an 8-GPU cluster via Ray (~10&times; wallclock speedup), running 50+ Bayesian hyperparameter trials within 24h via Ray Tune; experiment reproducibility enforced with MLflow and DVC. <a class="proj-link" href="#projects" data-tab="tab-projects" data-project="proj-complication-prediction">case study <span aria-hidden="true">&rarr;</span></a></li>
           </ul>
           <div class="exp-tags stagger reveal">
             <span class="exp-tag" style="--i:0">Agentic AI / MCP</span><span class="exp-tag" style="--i:1">vLLM</span><span class="exp-tag" style="--i:2">RAG</span><span class="exp-tag" style="--i:3">Kubernetes</span><span class="exp-tag" style="--i:4">PyTorch</span>
@@ -212,7 +242,7 @@
           <div class="exp-title">Data Scientist</div>
           <ul class="exp-bullets">
             <li>Led development of an automated document extraction system, collaborating directly with the operations team to define requirements and validate output quality &mdash; reducing manual processing workload by 40%. <a class="proj-link" href="#projects" data-tab="tab-projects" data-project="proj-doc-extraction">case study <span aria-hidden="true">&rarr;</span></a></li>
-            <li>Led an email classification project end-to-end &mdash; from stakeholder interviews with the support team through model deployment &mdash; cutting manual triage effort by 25%. <a class="proj-link" href="#projects" data-tab="tab-projects" data-project="proj-email-classification">case study <span aria-hidden="true">&rarr;</span></a></li>
+            <li>Drove a previously stalled email classification project to production, leading 2 junior engineers &mdash; multi-class intent classifier routing 300 emails/day cut manual triage by 25%; RNN-based auto-fill eliminated data entry for ~50% of incoming tickets. <a class="proj-link" href="#projects" data-tab="tab-projects" data-project="proj-email-classification">case study <span aria-hidden="true">&rarr;</span></a></li>
           </ul>
           <div class="exp-tags stagger reveal">
             <span class="exp-tag" style="--i:0">NLP</span><span class="exp-tag" style="--i:1">Object Detection</span><span class="exp-tag" style="--i:2">PyTorch</span><span class="exp-tag" style="--i:3">Project Leadership</span>
@@ -251,7 +281,7 @@
           <div class="proj-title">Clinical Agentic AI System</div>
           <div class="proj-meta">X-cardiac <span aria-hidden="true">&middot;</span> 2022&ndash;2026</div>
         </div>
-        <p class="proj-desc">Clinicians needed conversational, real-time access to structured patient records &mdash; but existing tools couldn&rsquo;t meet the auditability and accuracy demands of a regulated clinical environment. Built a production agentic system powered by MCP tools and custom RAG with context prioritisation, deployed on Kubernetes with vLLM inference, GPU load balancing, and auto-scaling for low-latency serving. Grafana-based observability for monitoring inference latency, token usage, and system health. Claude Code used extensively for accelerated development workflows.</p>
+        <p class="proj-desc">Clinicians needed conversational, real-time access to structured patient records &mdash; but existing tools couldn&rsquo;t meet the auditability and accuracy demands of a regulated clinical environment. Built a production clinical AI platform: RAG over a 500K-word clinical knowledge base, tool-calling agents over live patient data (FHIR, labs, vitals), and multi-model serving &mdash; zero to production in 5 months, used daily by 50+ clinicians. Achieved &lt;300ms TTFT and 3,000+ tok/s on 8&times;H200 GPUs via vLLM (KV-cache tuning, continuous batching). Eval framework covering tool-call accuracy, retrieval relevance, and clinical safety; human-in-the-loop review for high-risk decisions; distributed tracing for multi-agent debugging.</p>
         <div class="proj-skill">
           <span class="proj-skill-label">Skill focus</span>
           Production agentic systems where correctness and auditability are required constraints &mdash; including clinical deployment with full regulatory compliance.
@@ -270,7 +300,7 @@
           <div class="proj-title">Postoperative Complication Prediction</div>
           <div class="proj-meta">X-cardiac <span aria-hidden="true">&middot;</span> 2022&ndash;2026</div>
         </div>
-        <p class="proj-desc">Post-cardiac-surgery complications were detected too late for optimal intervention. Developed deep learning models on severely imbalanced clinical time-series data, parallelising multi-GPU training with Ray to cut iteration cycles from days to hours. Full experiment reproducibility via MLflow tracking and DVC dataset versioning.</p>
+        <p class="proj-desc">Post-cardiac-surgery complications were detected too late for optimal intervention. Owned the full ML development cycle for a transformer predicting postoperative complications (bleeding, acute renal failure) on a 20,000-patient cohort &mdash; recall &gt;80%, precision 60&ndash;70%. Key design decisions: multi-label temporal offsets, focal loss for class imbalance, and a published time-series transformer as research baseline. Parallelised distributed training across an 8-GPU cluster via Ray (~10&times; wallclock speedup), enabling 50+ Bayesian hyperparameter trials within 24h via Ray Tune. Full experiment reproducibility via MLflow and DVC.</p>
         <div class="proj-skill">
           <span class="proj-skill-label">Skill focus</span>
           Deep learning on imbalanced clinical time-series, with a mathematical foundation that treats model reliability as a first-order design constraint.
@@ -329,7 +359,7 @@
           <div class="edu-location">Zürich, Switzerland</div>
         </div>
         <div>
-          <div class="edu-degree">M.Sc. in Quantitative Finance</div>
+          <div class="edu-degree">M.Sc. in Applied Mathematics</div>
           <div class="edu-detail">Thesis: <em>Order book models and price formation</em><br>Deep focus on stochastic calculus, statistical modeling, financial mathematics, and computational methods.</div>
           <div class="edu-badge">Magna Cum Laude</div>
         </div>
@@ -361,7 +391,7 @@
           <a class="contact-link" style="--i:1" href="https://www.linkedin.com/in/kevinklein93" target="_blank" rel="noopener noreferrer"><span class="contact-link-icon">LinkedIn</span><span class="contact-link-val">linkedin.com/in/kevinklein93</span></a>
           <a class="contact-link" style="--i:2" href="https://github.com/kevkle" target="_blank" rel="noopener noreferrer"><span class="contact-link-icon">GitHub</span><span class="contact-link-val">github.com/kevkle</span></a>
           <div class="contact-location" style="--i:3"><span class="contact-link-icon">Location</span><span class="contact-link-val">Tel Aviv, Israel</span></div>
-          <a class="contact-link" style="--i:4" href="assets/Kevin_Klein_Senior_GenAI_Engineer.pdf" target="_blank" rel="noopener noreferrer"><span class="contact-link-icon">Resume</span><span class="contact-link-val">Download CV (PDF)</span></a>
+          <a class="contact-link" style="--i:4" href="assets/Kevin_Klein_ML_Engineer.pdf" target="_blank" rel="noopener noreferrer"><span class="contact-link-icon">Resume</span><span class="contact-link-val">Download CV (PDF)</span></a>
         </div>
       </div>
       <div>
